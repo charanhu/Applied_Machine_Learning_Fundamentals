@@ -30,3 +30,10 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  extra_navbar: ""
+  comments:
+    utterances:
+      repo: "charanhu/Applied_Machine_Learning_Fundamentals"
+
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
