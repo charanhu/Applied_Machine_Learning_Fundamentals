@@ -10,3 +10,4 @@ chapters:
 - file: Chapter1/Chapter1.md
   sections:
   - file: Chapter1/python_introduction.ipynb
+  - file: Chapter1/python_syntax.ipynb
