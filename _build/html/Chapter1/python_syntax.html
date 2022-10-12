@@ -324,12 +324,53 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   2.2. Python Syntax
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interactive-mode">
+     2.2.1. Interactive Mode
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#script-mode">
+     2.2.2. Script Mode
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-indentation">
+   2.3. Python Indentation
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -341,6 +382,36 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   2.2. Python Syntax
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interactive-mode">
+     2.2.1. Interactive Mode
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#script-mode">
+     2.2.2. Script Mode
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-indentation">
+   2.3. Python Indentation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -350,6 +421,103 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="python-syntax">
 <h1><span class="section-number">2.2. </span>Python Syntax<a class="headerlink" href="#python-syntax" title="Permalink to this headline">#</a></h1>
+<p>Python syntax is very simple and easy to learn. It is very similar to the English language.
+It can be executed in two ways:</p>
+<ol class="simple">
+<li><p>Interactive Mode</p></li>
+<li><p>Script Mode</p></li>
+</ol>
+<section id="interactive-mode">
+<h2><span class="section-number">2.2.1. </span>Interactive Mode<a class="headerlink" href="#interactive-mode" title="Permalink to this headline">#</a></h2>
+<p>In interactive mode, you can type Python statements directly in the terminal and the interpreter will execute them immediately.
+To start the interactive mode, type python in the terminal.
+The following is the output of the interactive mode:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Python 3.6.5 (default, Apr 1 2018, 05:46:30)
+[GCC 7.3.0] on linux
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; 1 + 1
+2
+
+&gt;&gt;&gt; print(&quot;Hello World&quot;)
+Hello World
+</pre></div>
+</div>
+</section>
+<section id="script-mode">
+<h2><span class="section-number">2.2.2. </span>Script Mode<a class="headerlink" href="#script-mode" title="Permalink to this headline">#</a></h2>
+<p>In script mode, you can write Python statements in a file and then execute the file.
+To start the script mode, type python followed by the file name in the terminal.
+The following is the output of the script mode:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python hello.py
+Hello World
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="python-indentation">
+<h1><span class="section-number">2.3. </span>Python Indentation<a class="headerlink" href="#python-indentation" title="Permalink to this headline">#</a></h1>
+<p>Python uses indentation to indicate a block of code.</p>
+<p>Python will give you an error if you skip the indentation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: Python Indentation</span>
+
+<span class="k">if</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
+<span class="c1"># Python will give you an error if you skip the indentation:</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: expected an indented block after &#39;if&#39; statement on line 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>The number of spaces is up to you as a programmer, but it has to be at least one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: Python Indentation</span>
+<span class="k">if</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Example: Python Indentation</span>
+<span class="k">if</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Five is greater than two!
+Five is greater than two!
+</pre></div>
+</div>
+</div>
+</div>
+<p>The spaces must be the same size in the same block of code, otherwise Python will give you an error.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: Python Indentation</span>
+<span class="k">if</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: unexpected indent
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
