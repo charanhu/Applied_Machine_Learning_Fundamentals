@@ -2,8 +2,11 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: README
+options:  
+  numbered: True
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+- file: How_to_read_this_Book.md
+- file: Chapter1/Chapter1.md
+  sections:
+  - file: Chapter1/python_introduction.ipynb
