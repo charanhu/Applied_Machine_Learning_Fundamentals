@@ -1,2 +1,0 @@
-build: 
-	jb build .
