@@ -12,3 +12,6 @@ chapters:
   - file: Chapter1/python_introduction.ipynb
   - file: Chapter1/python_syntax.ipynb
   - file: Chapter1/python_comments.ipynb
+- file: Chapter3/Chapter3.md
+  sections:
+  - file: Chapter3/pandas_DataFrame_diff.ipynb
