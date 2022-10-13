@@ -1,8 +1,8 @@
 # How to READ this BOOK
 
-This book is written using Jupyter Notebook. That means that you can execute all code written in the book. You can run the code by either downloading the source code or launching live Jupyter sessions in the cloud directly from your book. 
+Jupyter Notebook was used to create this book. This implies that you can run every piece of code in the book. Either download the source code or start real-time Jupyter sessions in the cloud right from your book to run the programme. 
 
-Simply click the launch button in the top right corner of the book to launch notebook with Google Colab.
+To open the notebook with Google Colab, just click the launch button in the top right corner of the book.
 ![image](img/launch_icon.png)  
 
-If you found any error in the book, feel free to submit an issue by clicking the GitHub icon at the top right corner. 
+Please feel free to report any errors you noticed in the book by selecting the GitHub symbol in the top right corner.
