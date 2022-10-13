@@ -7,7 +7,7 @@ It also includes python fundamentals like data structures, functions, and classe
 ![Applied Machine Learning Fundamentals](img/cover.png)
 
 # Outcomes of Applied Machine Learning Fundamentals book
-This book will help you to understand the fundamentals of machine learning and how to apply them to real-world problems. This book will help you to understand the fundamentals of python, numpy, pandas, matplotlib, and scikit-learn. This book will help you to understand the fundamentals of data science and machine learning. You can expect python code snippets, definations, algorithms, and flowcharts to help you understand the concepts.
+You'll learn about the foundations of machine learning in this book, along with practical applications. The principles of Python, Numpy, Pandas, Matplotlib, and Scikit-Learn will be clarified in this book. The principles of data science and machine learning will be easier for you to understand after reading this book. Python code examples, definitions, algorithms, and flowcharts will be used to explain the ideas.
 
 # About The Author
 
