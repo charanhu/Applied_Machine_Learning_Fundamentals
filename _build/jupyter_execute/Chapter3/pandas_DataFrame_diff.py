@@ -10,9 +10,9 @@
 # 
 # Parameters:
 # 
-#     periods: int, default 1. Periods to shift for calculating difference, accepts negative values.
-#     axis: {0 or ‘index’, 1 or ‘columns’}, default 0. Take difference over rows (0) or columns (1).
-#     Returns: DataFrame or Series of the same size and shape as the input.
+# 1. periods: int, default 1. Periods to shift for calculating difference, accepts negative values.
+# 2. axis: {0 or ‘index’, 1 or ‘columns’}, default 0. Take difference over rows (0) or columns (1).
+# 3. Returns: DataFrame or Series of the same size and shape as the input.
 
 # In[1]:
 

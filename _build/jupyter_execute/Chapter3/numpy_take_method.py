@@ -5,11 +5,18 @@
 
 # To take elements from a NumPy array at specific indices, we use the take() function of the NumPy library. 
 # 
-# The take() function takes two arguments: the array and the indices of the elements to be taken. 
+# Syntax: numpy.take(array, indeices, axis, out, mode)
 # 
-# The indices can be passed as a list or a NumPy array. 
-# 
-# The take() function returns a new array with the elements taken from the original array at the specified indices.
+# Parameters:
+# 1. array: Input array
+# 2. indices: The indices of the values to extract
+# 3. axis: The axis over which to select values. By default, the flattened input array is used.
+# 4. out: A location into which the result is stored. If provided, it must have a shape that the indices along axis.
+# 5. mode: {‘raise’, ‘wrap’, ‘clip’}, optional, Specifies how out-of-bounds indices will behave.
+#     1. ‘raise’ – raise an error (default)
+#     2. ‘wrap’ – wrap around
+#     3. ‘clip’ – clip to the range
+# 6. Returns: The returned array has the same type as array.
 
 # ## NumPy take()
 

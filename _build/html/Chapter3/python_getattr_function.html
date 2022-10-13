@@ -453,23 +453,16 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="python-getattr-function">
 <h1><span class="section-number">3.4. </span>Python getattr() Function<a class="headerlink" href="#python-getattr-function" title="Permalink to this headline">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python getattr() Function: The getattr() function returns the value of the</span>
-<span class="c1"># specified attribute (property or method) from the specified object.</span>
-<span class="c1"># If the specified attribute does not exist, default value is returned.</span>
-
-<span class="c1"># Syntax: getattr(object, attribute, default)</span>
-<span class="c1"># Parameters:</span>
-<span class="c1">#               object: object whose attribute is to be returned</span>
-<span class="c1">#               attribute: attribute name whose value is to be returned</span>
-<span class="c1">#               default: default value to be returned if the attribute does not exist</span>
-
-<span class="c1"># Return Value: value of the specified attribute</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Python getattr() Function: The getattr() function returns the value of the specified attribute (property or method) from the specified object.</p>
+<p>If the specified attribute does not exist, default value is returned.</p>
+<p>Syntax: getattr(object, attribute, default)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>object: object whose attribute is to be returned</p></li>
+<li><p>attribute: attribute name whose value is to be returned</p></li>
+<li><p>default: default value to be returned if the attribute does not exist</p></li>
+</ol>
+<p>Return Value: value of the specified attribute</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 1: getattr() function</span>
@@ -480,24 +473,26 @@ title="Print to PDF"
 <span class="c1"># create a Person object with age 36</span>
 <span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>
 
-<span class="c1"># get the value of the attribute &#39;age&#39;</span>
+<span class="c1"># get the value of the attribute which is defined in the class, i.e. age</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The age of Person &#39;</span><span class="p">,</span><span class="nb">getattr</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
-
-<span class="c1"># get the value of the attribute &#39;salary&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The salary of Person &#39;</span><span class="p">,</span><span class="nb">getattr</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="s1">&#39;salary&#39;</span><span class="p">,</span> <span class="mi">10000</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The age of Person  36
-The salary of Person  10000
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python getattr() Function for getting the value of a method or class attribute from an object or class respectively is shown in the following example.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the value of the attribute which is not defined in the class, i.e. name</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The name of Person &#39;</span><span class="p">,</span><span class="nb">getattr</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Unknown&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The name of Person  Unknown
 </pre></div>
 </div>
 </div>

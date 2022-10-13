@@ -501,9 +501,22 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="numpy-take-method">
 <h1><span class="section-number">3.1. </span>Numpy take() Method<a class="headerlink" href="#numpy-take-method" title="Permalink to this headline">#</a></h1>
 <p>To take elements from a NumPy array at specific indices, we use the take() function of the NumPy library.</p>
-<p>The take() function takes two arguments: the array and the indices of the elements to be taken.</p>
-<p>The indices can be passed as a list or a NumPy array.</p>
-<p>The take() function returns a new array with the elements taken from the original array at the specified indices.</p>
+<p>Syntax: numpy.take(array, indeices, axis, out, mode)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>array: Input array</p></li>
+<li><p>indices: The indices of the values to extract</p></li>
+<li><p>axis: The axis over which to select values. By default, the flattened input array is used.</p></li>
+<li><p>out: A location into which the result is stored. If provided, it must have a shape that the indices along axis.</p></li>
+<li><p>mode: {‘raise’, ‘wrap’, ‘clip’}, optional, Specifies how out-of-bounds indices will behave.</p>
+<ol class="simple">
+<li><p>‘raise’ – raise an error (default)</p></li>
+<li><p>‘wrap’ – wrap around</p></li>
+<li><p>‘clip’ – clip to the range</p></li>
+</ol>
+</li>
+<li><p>Returns: The returned array has the same type as array.</p></li>
+</ol>
 <section id="numpy-take">
 <h2><span class="section-number">3.1.1. </span>NumPy take()<a class="headerlink" href="#numpy-take" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">

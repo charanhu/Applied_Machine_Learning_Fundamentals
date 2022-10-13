@@ -3,23 +3,20 @@
 
 # # Python getattr() Function
 
-# In[1]:
-
-
-# Python getattr() Function: The getattr() function returns the value of the
-# specified attribute (property or method) from the specified object.
+# Python getattr() Function: The getattr() function returns the value of the specified attribute (property or method) from the specified object.
+# 
 # If the specified attribute does not exist, default value is returned.
 
 # Syntax: getattr(object, attribute, default)
+# 
 # Parameters:
-#               object: object whose attribute is to be returned
-#               attribute: attribute name whose value is to be returned
-#               default: default value to be returned if the attribute does not exist
-
+# 1. object: object whose attribute is to be returned
+# 2. attribute: attribute name whose value is to be returned
+# 3. default: default value to be returned if the attribute does not exist
+# 
 # Return Value: value of the specified attribute
 
-
-# In[2]:
+# In[1]:
 
 
 # Example 1: getattr() function
@@ -30,15 +27,13 @@ class Person:
 # create a Person object with age 36
 person = Person(36)
 
-# get the value of the attribute 'age'
+# get the value of the attribute which is defined in the class, i.e. age
 print('The age of Person ',getattr(person, 'age', 40))
 
-# get the value of the attribute 'salary'
-print('The salary of Person ',getattr(person, 'salary', 10000))
+
+# In[2]:
 
 
-# In[3]:
-
-
-# Python getattr() Function for getting the value of a method or class attribute from an object or class respectively is shown in the following example.
+# get the value of the attribute which is not defined in the class, i.e. name
+print('The name of Person ',getattr(person, 'name', 'Unknown'))
 
