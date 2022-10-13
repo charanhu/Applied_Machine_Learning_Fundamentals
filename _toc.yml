@@ -15,3 +15,6 @@ chapters:
 - file: Chapter3/Chapter3.md
   sections:
   - file: Chapter3/pandas_DataFrame_diff.ipynb
+- file: Chapter4/Chapter4.md
+  sections:
+  - file: Chapter4/iris_dataSet_EDA.ipynb
