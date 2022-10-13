@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # pandas.DataFrame.diff()
+# # Pandas DataFrame diff() Method
 
-# pandas diff() is used to find the difference of a DataFrame element compared with another element in
+# Pandas diff() is used to find the difference of a DataFrame element compared with another element in
 # the DataFrame (default is element in the same column of the previous row).
 
 # Syntax: DataFrame.diff(periods=1, axis=0)
