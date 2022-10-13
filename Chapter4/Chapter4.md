@@ -1,1 +1,11 @@
 # Exploratory Data Analysis
+
+## Intuition
+Imagine that your wolf pack picks a movie you haven't heard of to watch. There is no question in anyone's mind that doing so will leave you perplexed with numerous questions that must be addressed before making a choice. The first thing a good chieftain would inquire about is the cast and crew of the film. You would often watch the movie's trailer on YouTube as well. Additionally, you could discover audience ratings and reviews for the film.
+
+What data scientists refer to as "Exploratory Data Analysis" is exactly what you would do before eventually purchasing popcorn for your family at the movie theatre.
+
+## What is Exploratory Data Analysis?
+Exploratory data analysis is the crucial process of doing preliminary analyses on data in order to find patterns, identify anomalies, test hypotheses, and double-check assumptions with the aid of summary statistics and graphical representations.
+
+Exploratory data analysis (EDA) in statistics is a technique for examining data sets to highlight their key features, frequently utilising statistical graphics and other types of data visualisation. EDA contrasts with conventional hypothesis testing because it is primarily used to see what the data may tell us beyond the formal modelling, whether or not a statistical model is used. Since 1970, John Tukey has pushed exploratory data analysis to encourage statisticians to examine the data and perhaps develop hypotheses that could result in additional data collecting and experimentation. EDA is distinct from initial data analysis (IDA), which has a narrower focus on verifying the premises necessary for model fitting and hypothesis testing, addressing missing results, and transforming variables as necessary. IDA is included in EDA.
