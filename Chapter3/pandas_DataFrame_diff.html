@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2.2. Python Syntax &#8212; Applied Machine Learning Fundamentals</title>
+    <title>3.1. pandas.DataFrame.diff &#8212; Applied Machine Learning Fundamentals</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -86,8 +86,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.3. Python Comments" href="python_comments.html" />
-    <link rel="prev" title="2.1. Python Introduction" href="python_introduction.html" />
+    <link rel="prev" title="3. Pandas" href="Chapter3.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -153,45 +152,45 @@ const thebe_selector_output = ".output, .cell_output"
    1. How to READ this BOOK
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="Chapter1.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1/Chapter1.html">
    2. Python Fundamentals
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_introduction.html">
-     2.1. Python Introduction
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     2.2. Python Syntax
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_comments.html">
-     2.3. Python Comments
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Chapter3/Chapter3.html">
-   3. Pandas
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Chapter3/pandas_DataFrame_diff.html">
+    <a class="reference internal" href="../Chapter1/python_introduction.html">
+     2.1. Python Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter1/python_syntax.html">
+     2.2. Python Syntax
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter1/python_comments.html">
+     2.3. Python Comments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Chapter3.html">
+   3. Pandas
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      3.1. pandas.DataFrame.diff
     </a>
    </li>
@@ -252,7 +251,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/charanhu/Applied_Machine_Learning_Fundamentals/master?urlpath=tree/./Chapter1/python_syntax.ipynb"
+        <a href="https://mybinder.org/v2/gh/charanhu/Applied_Machine_Learning_Fundamentals/master?urlpath=tree/./Chapter3/pandas_DataFrame_diff.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -270,7 +269,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/charanhu/Applied_Machine_Learning_Fundamentals/blob/master/./Chapter1/python_syntax.ipynb"
+        <a href="https://colab.research.google.com/github/charanhu/Applied_Machine_Learning_Fundamentals/blob/master/./Chapter3/pandas_DataFrame_diff.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -330,7 +329,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/charanhu/Applied_Machine_Learning_Fundamentals/issues/new?title=Issue%20on%20page%20%2FChapter1/python_syntax.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/charanhu/Applied_Machine_Learning_Fundamentals/issues/new?title=Issue%20on%20page%20%2FChapter3/pandas_DataFrame_diff.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -358,7 +357,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/Chapter1/python_syntax.ipynb"
+        <a href="../_sources/Chapter3/pandas_DataFrame_diff.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -395,80 +394,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#interactive-mode">
-   2.2.1. Interactive Mode
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#script-mode">
-   2.2.2. Script Mode
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-indentation">
-   2.2.3. Python Indentation
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Python Syntax</h1>
+                <h1>pandas.DataFrame.diff</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#interactive-mode">
-   2.2.1. Interactive Mode
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#script-mode">
-   2.2.2. Script Mode
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-indentation">
-   2.2.3. Python Indentation
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -476,105 +418,232 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="python-syntax">
-<h1><span class="section-number">2.2. </span>Python Syntax<a class="headerlink" href="#python-syntax" title="Permalink to this headline">#</a></h1>
-<p>Python syntax is very simple and easy to learn. It is very similar to the English language.
-It can be executed in two ways:</p>
-<ol class="simple">
-<li><p>Interactive Mode</p></li>
-<li><p>Script Mode</p></li>
-</ol>
-<section id="interactive-mode">
-<h2><span class="section-number">2.2.1. </span>Interactive Mode<a class="headerlink" href="#interactive-mode" title="Permalink to this headline">#</a></h2>
-<p>In interactive mode, you can type Python statements directly in the terminal and the interpreter will execute them immediately.
-To start the interactive mode, type python in the terminal.
-The following is the output of the interactive mode:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Python 3.6.5 (default, Apr 1 2018, 05:46:30)
-[GCC 7.3.0] on linux
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-dataframe-diff">
+<h1><span class="section-number">3.1. </span>pandas.DataFrame.diff<a class="headerlink" href="#pandas-dataframe-diff" title="Permalink to this headline">#</a></h1>
+<p>pandas diff is used to find the difference of a DataFrame element compared with another element in
+the DataFrame (default is element in the same column of the previous row).</p>
+<p>Syntax: DataFrame.diff(periods=1, axis=0)</p>
+<p>Parameters:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>periods: int, default 1. Periods to shift for calculating difference, accepts negative values.
+axis: {0 or ‘index’, 1 or ‘columns’}, default 0. Take difference over rows (0) or columns (1).
+Returns: DataFrame or Series of the same size and shape as the input.
 </pre></div>
 </div>
-<p>Example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; 1 + 1
-2
-
-&gt;&gt;&gt; print(&quot;Hello World&quot;)
-Hello World
-</pre></div>
-</div>
-</section>
-<section id="script-mode">
-<h2><span class="section-number">2.2.2. </span>Script Mode<a class="headerlink" href="#script-mode" title="Permalink to this headline">#</a></h2>
-<p>In script mode, you can write Python statements in a file and then execute the file.
-To start the script mode, type python followed by the file name in the terminal.
-The following is the output of the script mode:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python hello.py
-Hello World
-</pre></div>
-</div>
-</section>
-<section id="python-indentation">
-<h2><span class="section-number">2.2.3. </span>Python Indentation<a class="headerlink" href="#python-indentation" title="Permalink to this headline">#</a></h2>
-<p>Python uses indentation to indicate a block of code.</p>
-<p>Python will give you an error if you skip the indentation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: Python Indentation</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: diff</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="k">if</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
-<span class="c1"># Python will give you an error if you skip the indentation:</span>
+<span class="c1"># Create a dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+                     <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+                        <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
-    <span class="o">^</span>
-<span class="ne">IndentationError</span>: expected an indented block after &#39;if&#39; statement on line 3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   A  B   C
+0  1  1   1
+1  2  1   4
+2  3  2   9
+3  4  3  16
+4  5  5  25
+5  6  8  36
 </pre></div>
 </div>
 </div>
 </div>
-<p>The number of spaces is up to you as a programmer, but it has to be at least one.</p>
+<p>Calculate the difference between the current and a shifted row.</p>
+<p>The default is to shift by one row</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>step by step:
+1. current row: 2, 1, 4
+2. shifted row: 1, 1, 1
+3. difference: 1, 0, 3
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: Python Indentation</span>
-<span class="k">if</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
- <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the difference between the current and a shifted row</span>
 
-<span class="c1"># Example: Python Indentation</span>
-<span class="k">if</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">diff</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Five is greater than two!
-Five is greater than two!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     A    B     C
+0  NaN  NaN   NaN
+1  1.0  0.0   3.0
+2  1.0  1.0   5.0
+3  1.0  1.0   7.0
+4  1.0  2.0   9.0
+5  1.0  3.0  11.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>The spaces must be the same size in the same block of code, otherwise Python will give you an error.</p>
+<p>Calculate the difference between the current and a shifted row of period 2.</p>
+<p>period 2 means the difference between the current row and the row 2 rows before it.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>step by step:
+1. current row: 6, 8, 36
+2. shifted row: 4, 3, 16
+3. difference: 2, 5, 20
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: Python Indentation</span>
-<span class="k">if</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the difference between the current and a shifted row of period 2</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Five is greater than two!&quot;</span><span class="p">)</span>
-    <span class="o">^</span>
-<span class="ne">IndentationError</span>: unexpected indent
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>20.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Calculate the difference between the current and a shifted row of axis 1.</p>
+<p>axis=1 means column wise operation and axis=0 means row wise operation.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>step by step for axis 1 and period 2
+1. current column: 1, 4, 9, 16, 25, 36
+2. shifted column: 1, 2, 3, 4, 5, 6
+3. difference: 0, 2, 6, 12, 20, 30
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the difference between the current and a shifted row of axis 1 and period 2</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -590,7 +659,7 @@ Five is greater than two!
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./Chapter1"
+            path: "./Chapter3"
         },
         predefinedOutput: true
     }
@@ -604,19 +673,12 @@ Five is greater than two!
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="python_introduction.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Chapter3.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">2.1. </span>Python Introduction</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Pandas</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="python_comments.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.3. </span>Python Comments</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
