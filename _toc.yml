@@ -14,7 +14,10 @@ chapters:
   - file: Chapter1/python_comments.ipynb
 - file: Chapter3/Chapter3.md
   sections:
+  - file: Chapter3/numpy_take_method.ipynb
   - file: Chapter3/pandas_DataFrame_diff.ipynb
+  - file: Chapter3/python_dictioanry_get.ipynb
+  - file: Chapter3/python_getattr_function.ipynb
 - file: Chapter4/Chapter4.md
   sections:
   - file: Chapter4/iris_dataSet_EDA.ipynb

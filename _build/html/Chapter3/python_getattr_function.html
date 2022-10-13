@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>3. Data Science Tips and Tricks &#8212; Applied Machine Learning Fundamentals</title>
+    <title>3.4. Python getattr() Function &#8212; Applied Machine Learning Fundamentals</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -86,8 +86,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.1. Numpy take() Method" href="numpy_take_method.html" />
-    <link rel="prev" title="2.3. Python Comments" href="../Chapter1/python_comments.html" />
+    <link rel="next" title="4. Exploratory Data Analysis" href="../Chapter4/Chapter4.html" />
+    <link rel="prev" title="3.3. Python Dictioanry get() Method" href="python_dictioanry_get.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -181,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="Chapter3.html">
    3. Data Science Tips and Tricks
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -189,7 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="numpy_take_method.html">
      3.1. Numpy take() Method
@@ -205,8 +205,8 @@ const thebe_selector_output = ".output, .cell_output"
      3.3. Python Dictioanry get() Method
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_getattr_function.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      3.4. Python getattr() Function
     </a>
    </li>
@@ -276,6 +276,53 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/charanhu/Applied_Machine_Learning_Fundamentals/master?urlpath=tree/./Chapter3/python_getattr_function.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/charanhu/Applied_Machine_Learning_Fundamentals/blob/master/./Chapter3/python_getattr_function.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -315,7 +362,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/charanhu/Applied_Machine_Learning_Fundamentals/issues/new?title=Issue%20on%20page%20%2FChapter3/Chapter3.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/charanhu/Applied_Machine_Learning_Fundamentals/issues/new?title=Issue%20on%20page%20%2FChapter3/python_getattr_function.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -343,7 +390,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/Chapter3/Chapter3.md"
+        <a href="../_sources/Chapter3/python_getattr_function.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -354,7 +401,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -392,7 +439,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Data Science Tips and Tricks</h1>
+                <h1>Python getattr() Function</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -404,9 +451,56 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="data-science-tips-and-tricks">
-<h1><span class="section-number">3. </span>Data Science Tips and Tricks<a class="headerlink" href="#data-science-tips-and-tricks" title="Permalink to this headline">#</a></h1>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="python-getattr-function">
+<h1><span class="section-number">3.4. </span>Python getattr() Function<a class="headerlink" href="#python-getattr-function" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python getattr() Function: The getattr() function returns the value of the</span>
+<span class="c1"># specified attribute (property or method) from the specified object.</span>
+<span class="c1"># If the specified attribute does not exist, default value is returned.</span>
+
+<span class="c1"># Syntax: getattr(object, attribute, default)</span>
+<span class="c1"># Parameters:</span>
+<span class="c1">#               object: object whose attribute is to be returned</span>
+<span class="c1">#               attribute: attribute name whose value is to be returned</span>
+<span class="c1">#               default: default value to be returned if the attribute does not exist</span>
+
+<span class="c1"># Return Value: value of the specified attribute</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 1: getattr() function</span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+<span class="c1"># create a Person object with age 36</span>
+<span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>
+
+<span class="c1"># get the value of the attribute &#39;age&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The age of Person &#39;</span><span class="p">,</span><span class="nb">getattr</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
+
+<span class="c1"># get the value of the attribute &#39;salary&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The salary of Person &#39;</span><span class="p">,</span><span class="nb">getattr</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="s1">&#39;salary&#39;</span><span class="p">,</span> <span class="mi">10000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The age of Person  36
+The salary of Person  10000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python getattr() Function for getting the value of a method or class attribute from an object or class respectively is shown in the following example.</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -437,17 +531,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../Chapter1/python_comments.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="python_dictioanry_get.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">2.3. </span>Python Comments</p>
+            <p class="prev-next-title"><span class="section-number">3.3. </span>Python Dictioanry get() Method</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="numpy_take_method.html" title="next page">
+    <a class='right-next' id="next-link" href="../Chapter4/Chapter4.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.1. </span>Numpy take() Method</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Exploratory Data Analysis</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
