@@ -1,1 +1,1 @@
-# Pandas
+# Data Science Tips and Tricks
