@@ -5,7 +5,7 @@
 
 # Python Comments are used to explain Python code. Comments can be used to make the code more readable. Comments can be used to prevent execution when testing code. Comments can be used to add a description to the code.
 
-# 1. comments help to make code more readable, and can be used to explain what the code does.
+# 1. Comments help to make code more readable, and can be used to explain what the code does.
 # 2. Comments can be used to prevent execution when testing code.
 # 3. Comments can be used to add a description to the code.
 
