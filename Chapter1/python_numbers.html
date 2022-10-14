@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>2. Python Fundamentals &#8212; Applied Machine Learning Fundamentals</title>
+    <title>2.6. Python Numbers &#8212; Applied Machine Learning Fundamentals</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -86,8 +86,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.1. Python Introduction" href="python_introduction.html" />
-    <link rel="prev" title="1. How to READ this BOOK" href="../How_to_read_this_Book.html" />
+    <link rel="next" title="2.7. Python Strings" href="PythonStrings/python_string.html" />
+    <link rel="prev" title="2.5. Python Data Types" href="python_dataTypes.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -154,7 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="Chapter1.html">
    2. Python Fundamentals
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -162,7 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="python_introduction.html">
      2.1. Python Introduction
@@ -188,8 +188,8 @@ const thebe_selector_output = ".output, .cell_output"
      2.5. Python Data Types
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="python_numbers.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      2.6. Python Numbers
     </a>
    </li>
@@ -313,6 +313,53 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/charanhu/Applied_Machine_Learning_Fundamentals/master?urlpath=tree/./Chapter1/python_numbers.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/charanhu/Applied_Machine_Learning_Fundamentals/blob/master/./Chapter1/python_numbers.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -352,7 +399,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/charanhu/Applied_Machine_Learning_Fundamentals/issues/new?title=Issue%20on%20page%20%2FChapter1/Chapter1.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/charanhu/Applied_Machine_Learning_Fundamentals/issues/new?title=Issue%20on%20page%20%2FChapter1/python_numbers.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -380,7 +427,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/Chapter1/Chapter1.md"
+        <a href="../_sources/Chapter1/python_numbers.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -391,7 +438,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -417,23 +464,100 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#int">
+   2.6.1. Int
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#float">
+   2.6.2. Float
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complex">
+   2.6.3. Complex
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#type-conversion">
+   2.6.4. Type Conversion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-number">
+   2.6.5. Random Number
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Python Fundamentals</h1>
+                <h1>Python Numbers</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#int">
+   2.6.1. Int
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#float">
+   2.6.2. Float
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complex">
+   2.6.3. Complex
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#type-conversion">
+   2.6.4. Type Conversion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-number">
+   2.6.5. Random Number
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -441,15 +565,159 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="python-fundamentals">
-<h1><span class="section-number">2. </span>Python Fundamentals<a class="headerlink" href="#python-fundamentals" title="Permalink to this headline">#</a></h1>
-<p>Python is a robust programming language that is simple to learn. Its object-oriented programming methodology is straightforward but efficient, and it includes good high-level data structures. Python is a fantastic language for scripting and quick application development in many domains on most platforms because to its clean syntax, dynamic typing, and nature of being an interpreted language.</p>
-<p>The comprehensive standard library and the Python interpreter are freely distributable and are accessible on the Python website, <a class="reference external" href="https://www.python.org/">https://www.python.org/</a>, in source or binary form for all popular platforms. The same website also provides links to further documentation as well as releases of numerous free third-party Python modules, programmes, and tools.</p>
-<p>It is simple to add new functions and data types to the Python interpreter that were developed in C or C++ (or other languages callable from C). Python is a good choice as an add-on language for flexible software.</p>
-<p>The reader is given a casual introduction to the fundamental ideas and capabilities of the Python system and language in this lesson. For practical experience, it is helpful to have a Python interpreter on hand, although the lesson can also be read offline because each example is self-contained.</p>
-<p>See The Python Standard Library for a description of common objects and modules. A more official definition of the language can be found in the Python Language Reference. Read Extending and Embedding the Python Interpreter and Python/C API Reference Manual to learn how to create extensions in C or C++.</p>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="python-numbers">
+<h1><span class="section-number">2.6. </span>Python Numbers<a class="headerlink" href="#python-numbers" title="Permalink to this headline">#</a></h1>
+<p>Python numbers data type are 3 types:</p>
+<ol class="simple">
+<li><p>int</p></li>
+<li><p>float</p></li>
+<li><p>complex</p></li>
+</ol>
+<section id="int">
+<h2><span class="section-number">2.6.1. </span>Int<a class="headerlink" href="#int" title="Permalink to this headline">#</a></h2>
+<p>int is a whole number, positive or negative, without decimals, of unlimited length.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">35656222554887711</span>
+<span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3255522</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+</pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
+&lt;class &#39;int&#39;&gt;
+&lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="float">
+<h2><span class="section-number">2.6.2. </span>Float<a class="headerlink" href="#float" title="Permalink to this headline">#</a></h2>
+<p>float, or “floating point number” is a number, positive or negative, containing one or more decimals.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1.10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mf">35.59</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;float&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>float can also be scientific numbers with an “e” to indicate the power of 10.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">35e3</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">12E4</span>
+<span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mf">87.7e100</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;float&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="complex">
+<h2><span class="section-number">2.6.3. </span>Complex<a class="headerlink" href="#complex" title="Permalink to this headline">#</a></h2>
+<p>complex numbers are written with a “j” as the imaginary part.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="o">+</span><span class="mi">5</span><span class="n">j</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">5</span><span class="n">j</span>
+<span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="n">j</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;complex&#39;&gt;
+&lt;class &#39;complex&#39;&gt;
+&lt;class &#39;complex&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="type-conversion">
+<h2><span class="section-number">2.6.4. </span>Type Conversion<a class="headerlink" href="#type-conversion" title="Permalink to this headline">#</a></h2>
+<p>Python Numbers data type can be converted into another data type.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>    <span class="c1"># int</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">2.8</span>  <span class="c1"># float</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span>   <span class="c1"># complex</span>
+
+<span class="c1"># convert from int to float:</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Type of  a is: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+
+<span class="c1"># bconvert from float to int:</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Type of  b is: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+
+<span class="c1"># convert from int to complex:</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Type of  c is: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Type of  a is:  &lt;class &#39;float&#39;&gt;
+Type of  b is:  &lt;class &#39;int&#39;&gt;
+Type of  c is:  &lt;class &#39;complex&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="random-number">
+<h2><span class="section-number">2.6.5. </span>Random Number<a class="headerlink" href="#random-number" title="Permalink to this headline">#</a></h2>
+<p>Defination: Random number is a number, which can not be predicted logically.</p>
+<p>Python random module can be used to generate random numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example:</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -479,17 +747,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../How_to_read_this_Book.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="python_dataTypes.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">1. </span>How to READ this BOOK</p>
+            <p class="prev-next-title"><span class="section-number">2.5. </span>Python Data Types</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="python_introduction.html" title="next page">
+    <a class='right-next' id="next-link" href="PythonStrings/python_string.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.1. </span>Python Introduction</p>
+        <p class="prev-next-title"><span class="section-number">2.7. </span>Python Strings</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

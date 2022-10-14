@@ -1,0 +1,1202 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2.7.1. Python Strings &#8212; Applied Machine Learning Fundamentals</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "charanhu/Applied_Machine_Learning_Fundamentals");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.7.2. Python String Methods" href="python_string_methods.html" />
+    <link rel="prev" title="2.7. Python Strings" href="python_string.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Applied Machine Learning Fundamentals</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Applied Machine Learning Fundamentals
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../How_to_read_this_Book.html">
+   1. How to READ this BOOK
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   2. Python Fundamentals
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_introduction.html">
+     2.1. Python Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_syntax.html">
+     2.2. Python Syntax
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_comments.html">
+     2.3. Python Comments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_variables.html">
+     2.4. Python Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_dataTypes.html">
+     2.5. Python Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_numbers.html">
+     2.6. Python Numbers
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="python_string.html">
+     2.7. Python Strings
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       2.7.1. Python Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_string_methods.html">
+       2.7.2. Python String Methods
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Chapter3/Chapter3.html">
+   3. Data Science Tips and Tricks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter3/numpy_take_method.html">
+     3.1. Numpy take() Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter3/pandas_DataFrame_diff.html">
+     3.2. Pandas DataFrame diff() Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter3/python_dictioanry_get.html">
+     3.3. Python Dictioanry get() Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter3/python_getattr_function.html">
+     3.4. Python getattr() Function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Chapter4/Chapter4.html">
+   4. Exploratory Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter4/iris_dataSet_EDA.html">
+     4.1. Plotting for Exploratory data analysis (EDA)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/charanhu/Applied_Machine_Learning_Fundamentals/master?urlpath=tree/./Chapter1/PythonStrings/python_strings.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/charanhu/Applied_Machine_Learning_Fundamentals/blob/master/./Chapter1/PythonStrings/python_strings.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/charanhu/Applied_Machine_Learning_Fundamentals"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/charanhu/Applied_Machine_Learning_Fundamentals/issues/new?title=Issue%20on%20page%20%2FChapter1/PythonStrings/python_strings.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/Chapter1/PythonStrings/python_strings.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-string">
+   2.7.1.1. Creating a string
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assigning-a-string">
+   2.7.1.2. Assigning a string
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiline-strings">
+   2.7.1.3. Multiline Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slice-strings">
+   2.7.1.4. Slice Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slice-from-the-start">
+   2.7.1.5. Slice from the start
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slice-to-the-end">
+   2.7.1.6. Slice to the end
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#negative-indexing">
+   2.7.1.7. Negative Indexing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modify-strings">
+   2.7.1.8. Modify Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-upper-case">
+   2.7.1.9. String Upper Case
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-lower-case">
+   2.7.1.10. String Lower Case
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-replace">
+   2.7.1.11. String Replace
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-remove-whitespace">
+   2.7.1.12. String Remove Whitespace
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-split">
+   2.7.1.13. String Split
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-concatenation">
+   2.7.1.14. String Concatenation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-format">
+   2.7.1.15. String Format
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#string-format-with-position">
+     2.7.1.15.1. String Format with Position
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#string-format-with-keyword">
+     2.7.1.15.2. String Format with Keyword
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#string-format-with-variable">
+     2.7.1.15.3. String Format with Variable
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-escape-character">
+   2.7.1.16. String Escape Character
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#escape-character">
+   2.7.1.17. Escape Character:
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Python Strings</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-string">
+   2.7.1.1. Creating a string
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assigning-a-string">
+   2.7.1.2. Assigning a string
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiline-strings">
+   2.7.1.3. Multiline Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slice-strings">
+   2.7.1.4. Slice Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slice-from-the-start">
+   2.7.1.5. Slice from the start
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slice-to-the-end">
+   2.7.1.6. Slice to the end
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#negative-indexing">
+   2.7.1.7. Negative Indexing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modify-strings">
+   2.7.1.8. Modify Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-upper-case">
+   2.7.1.9. String Upper Case
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-lower-case">
+   2.7.1.10. String Lower Case
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-replace">
+   2.7.1.11. String Replace
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-remove-whitespace">
+   2.7.1.12. String Remove Whitespace
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-split">
+   2.7.1.13. String Split
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-concatenation">
+   2.7.1.14. String Concatenation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-format">
+   2.7.1.15. String Format
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#string-format-with-position">
+     2.7.1.15.1. String Format with Position
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#string-format-with-keyword">
+     2.7.1.15.2. String Format with Keyword
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#string-format-with-variable">
+     2.7.1.15.3. String Format with Variable
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-escape-character">
+   2.7.1.16. String Escape Character
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#escape-character">
+   2.7.1.17. Escape Character:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="python-strings">
+<h1><span class="section-number">2.7.1. </span>Python Strings<a class="headerlink" href="#python-strings" title="Permalink to this headline">#</a></h1>
+<p>Defination: A string is a sequence of characters. Strings are immutable. Strings are enclosed in single quotes or double quotes.</p>
+<section id="creating-a-string">
+<h2><span class="section-number">2.7.1.1. </span>Creating a string<a class="headerlink" href="#creating-a-string" title="Permalink to this headline">#</a></h2>
+<p>We can create a string by enclosing characters in quotes. Python treats single quotes the same as double quotes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 1</span>
+<span class="n">str1</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="assigning-a-string">
+<h2><span class="section-number">2.7.1.2. </span>Assigning a string<a class="headerlink" href="#assigning-a-string" title="Permalink to this headline">#</a></h2>
+<p>Defination: Assigning a string to a variable is called string assignment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 2</span>
+<span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multiline-strings">
+<h2><span class="section-number">2.7.1.3. </span>Multiline Strings<a class="headerlink" href="#multiline-strings" title="Permalink to this headline">#</a></h2>
+<p>Defination: We can assign a multiline string to a variable by using three quotes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 3</span>
+<span class="n">str3</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Hello World</span>
+<span class="s2">This is a multiline string&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World
+This is a multiline string
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 4: using single quotes</span>
+<span class="n">str4</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Hello World</span>
+<span class="s1">This is a multiline string&#39;&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World
+This is a multiline string
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="slice-strings">
+<h2><span class="section-number">2.7.1.4. </span>Slice Strings<a class="headerlink" href="#slice-strings" title="Permalink to this headline">#</a></h2>
+<p>Defination: We can access substrings, by using the slice syntax.</p>
+<p>Slicing of strings is done by using the slice operator ( [ ] and [ : ] ) with indexes starting at 0 in the beginning of the string and working their way from -1 at the end.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Example 5</span>
+<span class="n">str5</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str5</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="slice-from-the-start">
+<h2><span class="section-number">2.7.1.5. </span>Slice from the start<a class="headerlink" href="#slice-from-the-start" title="Permalink to this headline">#</a></h2>
+<p>Defination: By leaving out the start index, the range will start at the first character.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 6</span>
+<span class="n">str6</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str6</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="slice-to-the-end">
+<h2><span class="section-number">2.7.1.6. </span>Slice to the end<a class="headerlink" href="#slice-to-the-end" title="Permalink to this headline">#</a></h2>
+<p>Defination: By leaving out the end index, the range will go to the end.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 7</span>
+<span class="n">str7</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str7</span><span class="p">[</span><span class="mi">6</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>World
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="negative-indexing">
+<h2><span class="section-number">2.7.1.7. </span>Negative Indexing<a class="headerlink" href="#negative-indexing" title="Permalink to this headline">#</a></h2>
+<p>Defination: Negative indexing means beginning from the end, -1 refers to the last item, -2 refers to the second last item etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 8</span>
+<span class="n">str8</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str8</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wor
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modify-strings">
+<h2><span class="section-number">2.7.1.8. </span>Modify Strings<a class="headerlink" href="#modify-strings" title="Permalink to this headline">#</a></h2>
+<p>Defination: We cannot change the value of a string. We can only assign a new string to the same name.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 9</span>
+<span class="n">str9</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="n">str9</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;J&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Example 9</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">str9</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">str9</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;J&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">str9</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: &#39;str&#39; object does not support item assignment
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-upper-case">
+<h2><span class="section-number">2.7.1.9. </span>String Upper Case<a class="headerlink" href="#string-upper-case" title="Permalink to this headline">#</a></h2>
+<p>Defination: We can convert a string into upper case by using upper() method.</p>
+<p>Syntax of upper() method with parameters: string.upper()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 10</span>
+<span class="n">str10</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str10</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HELLO WORLD
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-lower-case">
+<h2><span class="section-number">2.7.1.10. </span>String Lower Case<a class="headerlink" href="#string-lower-case" title="Permalink to this headline">#</a></h2>
+<p>Defination: We can convert a string into lower case by using lower() method.</p>
+<p>Syntax of lower() method with parameters: string.lower()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 11</span>
+<span class="n">str11</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str11</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello world
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-replace">
+<h2><span class="section-number">2.7.1.11. </span>String Replace<a class="headerlink" href="#string-replace" title="Permalink to this headline">#</a></h2>
+<p>Defination: We can replace a string with another string by using replace() method.</p>
+<p>Syntax of replace() method with parameters: string.replace(old, new)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>old: old substring to be replaced.</p></li>
+<li><p>new: new substring to be replaced.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 12</span>
+<span class="n">str12</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str12</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;J&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jello World
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-remove-whitespace">
+<h2><span class="section-number">2.7.1.12. </span>String Remove Whitespace<a class="headerlink" href="#string-remove-whitespace" title="Permalink to this headline">#</a></h2>
+<p>Defination: We can remove whitespace from the beginning or the end of a string by using strip() method.</p>
+<p>Syntax of strip() method with parameters: string.strip()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 13</span>
+<span class="n">str13</span> <span class="o">=</span> <span class="s2">&quot; Hello World &quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str13</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-split">
+<h2><span class="section-number">2.7.1.13. </span>String Split<a class="headerlink" href="#string-split" title="Permalink to this headline">#</a></h2>
+<p>Defination: We can split a string into substrings by using split() method.</p>
+<p>Syntax of split() method with parameters: string.split(separator, maxsplit)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>separator: The is a delimiter. The string splits at this specified separator. If is not specified, any whitespace (space, newline etc.) string is a separator.</p></li>
+<li><p>maxsplit: It is a number, which tells us to split the string into maximum of provided number of times. If it is not provided then there is no limit.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 14</span>
+<span class="n">str14</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str14</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Hello&#39;, &#39;World&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-concatenation">
+<h2><span class="section-number">2.7.1.14. </span>String Concatenation<a class="headerlink" href="#string-concatenation" title="Permalink to this headline">#</a></h2>
+<p>Defination: We can concatenate strings by using + operator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 15</span>
+<span class="n">str15</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="n">str16</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
+<span class="n">str17</span> <span class="o">=</span> <span class="n">str15</span> <span class="o">+</span> <span class="n">str16</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str17</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HelloWorld
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-format">
+<h2><span class="section-number">2.7.1.15. </span>String Format<a class="headerlink" href="#string-format" title="Permalink to this headline">#</a></h2>
+<p>Defination: We can format strings by using format() method.</p>
+<p>Syntax of format() method with parameters: string.format(value1, value2, …)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 16</span>
+<span class="n">str18</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="n">str19</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> World&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str19</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">str18</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World
+</pre></div>
+</div>
+</div>
+</div>
+<section id="string-format-with-position">
+<h3><span class="section-number">2.7.1.15.1. </span>String Format with Position<a class="headerlink" href="#string-format-with-position" title="Permalink to this headline">#</a></h3>
+<p>Defination: We can format strings by using format() method with position. The position is the index of the argument in the format() method. The index starts from 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 17</span>
+<span class="n">str20</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="n">str21</span> <span class="o">=</span> <span class="s2">&quot;Charan&quot;</span>
+<span class="n">str22</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> this is </span><span class="si">{1}</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str22</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">str20</span><span class="p">,</span> <span class="n">str21</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello this is Charan
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-format-with-keyword">
+<h3><span class="section-number">2.7.1.15.2. </span>String Format with Keyword<a class="headerlink" href="#string-format-with-keyword" title="Permalink to this headline">#</a></h3>
+<p>Defination: We can format strings by using format() method with keyword.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 18</span>
+<span class="n">str23</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="n">str24</span> <span class="o">=</span> <span class="s2">&quot;Charan&quot;</span>
+<span class="n">str25</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{greeting}</span><span class="s2"> this is </span><span class="si">{name}</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str25</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">greeting</span> <span class="o">=</span> <span class="n">str23</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">str24</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello this is Charan
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-format-with-variable">
+<h3><span class="section-number">2.7.1.15.3. </span>String Format with Variable<a class="headerlink" href="#string-format-with-variable" title="Permalink to this headline">#</a></h3>
+<p>Defination: We can format strings by using format() method with variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 19</span>
+<span class="n">str26</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="n">str27</span> <span class="o">=</span> <span class="s2">&quot;Charan&quot;</span>
+<span class="n">str28</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{greeting}</span><span class="s2"> this is </span><span class="si">{name}</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str28</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">greeting</span> <span class="o">=</span> <span class="n">str26</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">str27</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello this is Charan
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="string-escape-character">
+<h2><span class="section-number">2.7.1.16. </span>String Escape Character<a class="headerlink" href="#string-escape-character" title="Permalink to this headline">#</a></h2>
+<p>Defination: We can use escape character to insert characters that are illegal in a string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 20</span>
+<span class="n">str29</span> <span class="o">=</span> <span class="s2">&quot;My name is </span><span class="se">\&quot;</span><span class="s2">Charan</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str29</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My name is &quot;Charan&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="escape-character">
+<h2><span class="section-number">2.7.1.17. </span>Escape Character:<a class="headerlink" href="#escape-character" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>‘	Single Quote</p></li>
+<li><p>\	Backslash</p></li>
+<li><p>\n	New Line</p></li>
+<li><p>\r	Carriage Return</p></li>
+<li><p>\t	Tab</p></li>
+<li><p>\b	Backspace</p></li>
+<li><p>\f	Form Feed</p></li>
+<li><p>\ooo	Octal value</p></li>
+<li><p>\xhh	Hex value</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Chapter1\PythonStrings"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="python_string.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2.7. </span>Python Strings</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="python_string_methods.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.7.2. </span>Python String Methods</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Charan H U<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

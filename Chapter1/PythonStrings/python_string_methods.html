@@ -1,0 +1,2115 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2.7.2. Python String Methods &#8212; Applied Machine Learning Fundamentals</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "charanhu/Applied_Machine_Learning_Fundamentals");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Data Science Tips and Tricks" href="../../Chapter3/Chapter3.html" />
+    <link rel="prev" title="2.7.1. Python Strings" href="python_strings.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Applied Machine Learning Fundamentals</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Applied Machine Learning Fundamentals
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../How_to_read_this_Book.html">
+   1. How to READ this BOOK
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   2. Python Fundamentals
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_introduction.html">
+     2.1. Python Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_syntax.html">
+     2.2. Python Syntax
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_comments.html">
+     2.3. Python Comments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_variables.html">
+     2.4. Python Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_dataTypes.html">
+     2.5. Python Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_numbers.html">
+     2.6. Python Numbers
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="python_string.html">
+     2.7. Python Strings
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_strings.html">
+       2.7.1. Python Strings
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       2.7.2. Python String Methods
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Chapter3/Chapter3.html">
+   3. Data Science Tips and Tricks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter3/numpy_take_method.html">
+     3.1. Numpy take() Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter3/pandas_DataFrame_diff.html">
+     3.2. Pandas DataFrame diff() Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter3/python_dictioanry_get.html">
+     3.3. Python Dictioanry get() Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter3/python_getattr_function.html">
+     3.4. Python getattr() Function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../Chapter4/Chapter4.html">
+   4. Exploratory Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Chapter4/iris_dataSet_EDA.html">
+     4.1. Plotting for Exploratory data analysis (EDA)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/charanhu/Applied_Machine_Learning_Fundamentals/master?urlpath=tree/./Chapter1/PythonStrings/python_string_methods.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/charanhu/Applied_Machine_Learning_Fundamentals/blob/master/./Chapter1/PythonStrings/python_string_methods.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/charanhu/Applied_Machine_Learning_Fundamentals"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/charanhu/Applied_Machine_Learning_Fundamentals/issues/new?title=Issue%20on%20page%20%2FChapter1/PythonStrings/python_string_methods.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/Chapter1/PythonStrings/python_string_methods.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#capitalize">
+   2.7.2.1. capitalize()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#casefold">
+   2.7.2.2. casefold()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#center">
+   2.7.2.3. center()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#count">
+   2.7.2.4. count()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encode">
+   2.7.2.5. encode()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#endswith">
+   2.7.2.6. endswith()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expandtabs">
+   2.7.2.7. expandtabs()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#find">
+   2.7.2.8. find()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#format">
+   2.7.2.9. format()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#format-map">
+   2.7.2.10. format_map()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#index">
+   2.7.2.11. index()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isalnum">
+   2.7.2.12. isalnum()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isalpha">
+   2.7.2.13. isalpha()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isdecimal">
+   2.7.2.14. isdecimal()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isdigit">
+   2.7.2.15. isdigit()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isidentifier">
+   2.7.2.16. isidentifier()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#islower">
+   2.7.2.17. islower()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isnumeric">
+   2.7.2.18. isnumeric()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isprintable">
+   2.7.2.19. isprintable()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isspace">
+   2.7.2.20. isspace()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#istitle">
+   2.7.2.21. istitle()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isupper">
+   2.7.2.22. isupper()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#join">
+   2.7.2.23. join()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ljust">
+   2.7.2.24. ljust()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lower">
+   2.7.2.25. lower()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lstrip">
+   2.7.2.26. lstrip()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maketrans">
+   2.7.2.27. maketrans()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#partition">
+   2.7.2.28. partition()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#replace">
+   2.7.2.29. replace()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rfind">
+   2.7.2.30. rfind()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rindex">
+   2.7.2.31. rindex()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rjust">
+   2.7.2.32. rjust()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rpartition">
+   2.7.2.33. rpartition()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rsplit">
+   2.7.2.34. rsplit()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rstrip">
+   2.7.2.35. rstrip()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#split">
+   2.7.2.36. split()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#splitlines">
+   2.7.2.37. splitlines()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#startswith">
+   2.7.2.38. startswith()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#strip">
+   2.7.2.39. strip()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#swapcase">
+   2.7.2.40. swapcase()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#title">
+   2.7.2.41. title()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#translate">
+   2.7.2.42. translate()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#upper">
+   2.7.2.43. upper()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zfill">
+   2.7.2.44. zfill()
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Python String Methods</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#capitalize">
+   2.7.2.1. capitalize()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#casefold">
+   2.7.2.2. casefold()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#center">
+   2.7.2.3. center()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#count">
+   2.7.2.4. count()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encode">
+   2.7.2.5. encode()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#endswith">
+   2.7.2.6. endswith()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expandtabs">
+   2.7.2.7. expandtabs()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#find">
+   2.7.2.8. find()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#format">
+   2.7.2.9. format()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#format-map">
+   2.7.2.10. format_map()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#index">
+   2.7.2.11. index()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isalnum">
+   2.7.2.12. isalnum()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isalpha">
+   2.7.2.13. isalpha()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isdecimal">
+   2.7.2.14. isdecimal()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isdigit">
+   2.7.2.15. isdigit()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isidentifier">
+   2.7.2.16. isidentifier()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#islower">
+   2.7.2.17. islower()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isnumeric">
+   2.7.2.18. isnumeric()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isprintable">
+   2.7.2.19. isprintable()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isspace">
+   2.7.2.20. isspace()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#istitle">
+   2.7.2.21. istitle()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isupper">
+   2.7.2.22. isupper()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#join">
+   2.7.2.23. join()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ljust">
+   2.7.2.24. ljust()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lower">
+   2.7.2.25. lower()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lstrip">
+   2.7.2.26. lstrip()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maketrans">
+   2.7.2.27. maketrans()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#partition">
+   2.7.2.28. partition()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#replace">
+   2.7.2.29. replace()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rfind">
+   2.7.2.30. rfind()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rindex">
+   2.7.2.31. rindex()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rjust">
+   2.7.2.32. rjust()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rpartition">
+   2.7.2.33. rpartition()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rsplit">
+   2.7.2.34. rsplit()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rstrip">
+   2.7.2.35. rstrip()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#split">
+   2.7.2.36. split()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#splitlines">
+   2.7.2.37. splitlines()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#startswith">
+   2.7.2.38. startswith()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#strip">
+   2.7.2.39. strip()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#swapcase">
+   2.7.2.40. swapcase()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#title">
+   2.7.2.41. title()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#translate">
+   2.7.2.42. translate()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#upper">
+   2.7.2.43. upper()
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zfill">
+   2.7.2.44. zfill()
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="python-string-methods">
+<h1><span class="section-number">2.7.2. </span>Python String Methods<a class="headerlink" href="#python-string-methods" title="Permalink to this headline">#</a></h1>
+<section id="capitalize">
+<h2><span class="section-number">2.7.2.1. </span>capitalize()<a class="headerlink" href="#capitalize" title="Permalink to this headline">#</a></h2>
+<p>Defination: The capitalize() method returns a copy of the string with only its first character capitalized.</p>
+<p>Syntax of capitalize() method with Parameters: string.capitalize()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 1:</span>
+<span class="c1"># Python program to demonstrate working of capitalize()</span>
+<span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;python is awesome&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New String: &quot;</span><span class="p">,</span> <span class="n">str1</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  python is awesome
+New String:  Python is awesome
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="casefold">
+<h2><span class="section-number">2.7.2.2. </span>casefold()<a class="headerlink" href="#casefold" title="Permalink to this headline">#</a></h2>
+<p>Defination: The casefold() method is removes all case distinctions present in a string. It is used for caseless matching, i.e. ignores cases when comparing.</p>
+<p>Syntax of casefold() method with Parameters: string.casefold()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 2:</span>
+<span class="c1"># Python program to demonstrate working of casefold()</span>
+<span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;PYTHON IS AWESOME&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New String: &quot;</span><span class="p">,</span> <span class="n">str2</span><span class="o">.</span><span class="n">casefold</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  PYTHON IS AWESOME
+New String:  python is awesome
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="center">
+<h2><span class="section-number">2.7.2.3. </span>center()<a class="headerlink" href="#center" title="Permalink to this headline">#</a></h2>
+<p>Defination: The center() method returns a centered string of length width. Padding is done using the specified fillchar (default is a space).</p>
+<p>Syntax of center() method with Parameters: string.center(width, fillchar)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>width: This is the total width of the string.</p></li>
+<li><p>fillchar: This is the character to be filled in the empty space.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 3:</span>
+<span class="c1"># Python program to demonstrate working of center()</span>
+<span class="n">str3</span> <span class="o">=</span> <span class="s2">&quot;python is awesome&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New String: &quot;</span><span class="p">,</span> <span class="n">str3</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">))</span> <span class="c1"># 24 is the width of the string</span>
+<span class="c1"># Output:</span>
+<span class="c1"># Old String: python is awesome</span>
+<span class="c1"># New String: ****python is awesome****</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  python is awesome
+New String:  ***python is awesome****
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="count">
+<h2><span class="section-number">2.7.2.4. </span>count()<a class="headerlink" href="#count" title="Permalink to this headline">#</a></h2>
+<p>Defination: The count() method returns the number of occurrences of a substring in the given string.</p>
+<p>Syntax of count() method with Parameters: string.count(substring, start, end)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>substring: This is the substring to be searched in the string.</p></li>
+<li><p>start: This is the starting index within the string where search starts.</p></li>
+<li><p>end: This is the ending index within the string where search ends.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 4:</span>
+<span class="c1"># Python program to demonstrate working of count()</span>
+<span class="n">str4</span> <span class="o">=</span> <span class="s2">&quot;python is awesome, is isn&#39;t it?&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result: &quot;</span><span class="p">,</span> <span class="n">str4</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;is&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  python is awesome, is isn&#39;t it?
+Result:  3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="encode">
+<h2><span class="section-number">2.7.2.5. </span>encode()<a class="headerlink" href="#encode" title="Permalink to this headline">#</a></h2>
+<p>Defination: The encode() method returns an encoded version of the given string. Default encoding is the current default string encoding.</p>
+<p>Syntax of encode() method with Parameters: string.encode(encoding, errors)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>encoding: This is the encoding type to be used to encode the string.</p></li>
+<li><p>errors: This is the response when the encoding error occurs.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 5:</span>
+<span class="c1"># Python program to demonstrate working of default encode()</span>
+<span class="n">str5</span> <span class="o">=</span> <span class="s2">&quot;python is awesome&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Encoded String: &quot;</span><span class="p">,</span> <span class="n">str5</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  python is awesome
+Encoded String:  b&#39;python is awesome&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 6:</span>
+<span class="c1"># Python program to demonstrate working of encode() with errors</span>
+<span class="n">str6</span> <span class="o">=</span> <span class="s2">&quot;python is awesome&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Encoded String: &quot;</span><span class="p">,</span> <span class="n">str6</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="s1">&#39;ignore&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  python is awesome
+Encoded String:  b&#39;python is awesome&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="endswith">
+<h2><span class="section-number">2.7.2.6. </span>endswith()<a class="headerlink" href="#endswith" title="Permalink to this headline">#</a></h2>
+<p>Defination: The endswith() method returns True if a string ends with the specified suffix. If not, it returns False.</p>
+<p>Syntax of endswith() method with Parameters: string.endswith(suffix, start, end)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>suffix: This is the suffix to be searched in the string.</p></li>
+<li><p>start: This is the starting index within the string where search starts.</p></li>
+<li><p>end: This is the ending index within the string where search ends.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 7:</span>
+<span class="c1"># Python program to demonstrate working of endswith()</span>
+<span class="n">str7</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result: &quot;</span><span class="p">,</span> <span class="n">str7</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;U&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is Charan H U
+Result:  True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="expandtabs">
+<h2><span class="section-number">2.7.2.7. </span>expandtabs()<a class="headerlink" href="#expandtabs" title="Permalink to this headline">#</a></h2>
+<p>Defination: The expandtabs() method returns a copy of the string where all tab characters are replaced with whitespace characters until the next multiple of tabsize parameter.</p>
+<p>Syntax of expandtabs() method with Parameters: string.expandtabs(tabsize)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>tabsize: This is the tab size to be used to replace the tab character.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 8:</span>
+<span class="c1"># Python program to demonstrate working of expandtabs()</span>
+<span class="n">str8</span> <span class="o">=</span> <span class="s2">&quot;My name is</span><span class="se">\t</span><span class="s2">Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New String: &quot;</span><span class="p">,</span> <span class="n">str8</span><span class="o">.</span><span class="n">expandtabs</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is	Charan H U
+New String:  My name is      Charan H U
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="find">
+<h2><span class="section-number">2.7.2.8. </span>find()<a class="headerlink" href="#find" title="Permalink to this headline">#</a></h2>
+<p>Defination: The find() method returns the lowest index of the substring if it is found in given string. If its is not found then it returns -1.</p>
+<p>Syntax of find() method with Parameters: string.find(substring, start, end)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>substring: This is the substring to be searched in the string.</p></li>
+<li><p>start: This is the starting index within the string where search starts.</p></li>
+<li><p>end: This is the ending index within the string where search ends.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 9:</span>
+<span class="c1"># Python program to demonstrate working of find()</span>
+<span class="n">str9</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str9</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result: &quot;</span><span class="p">,</span> <span class="n">str9</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Charan&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is Charan H U
+Result:  11
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 10:</span>
+<span class="c1"># Python program to demonstrate working of find() with start and end</span>
+<span class="n">str10</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result: &quot;</span><span class="p">,</span> <span class="n">str10</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Charan&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is Charan H U
+Result:  11
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="format">
+<h2><span class="section-number">2.7.2.9. </span>format()<a class="headerlink" href="#format" title="Permalink to this headline">#</a></h2>
+<p>Defination: The format() method formats the specified value(s) and insert them inside the string’s placeholder.</p>
+<p>Syntax of format() method with Parameters: string.format(value1, value2, …)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>value1, value2, …: These are the values to be inserted inside the string’s placeholder.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 11:</span>
+<span class="c1"># Python program to demonstrate working of format()</span>
+<span class="n">str11</span> <span class="o">=</span> <span class="s2">&quot;My name is </span><span class="si">{}</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str11</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New String: &quot;</span><span class="p">,</span> <span class="n">str11</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Charan H U&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is {}
+New String:  My name is Charan H U
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="format-map">
+<h2><span class="section-number">2.7.2.10. </span>format_map()<a class="headerlink" href="#format-map" title="Permalink to this headline">#</a></h2>
+<p>Defination: The format_map() method formats the specified value(s) and insert them inside the string’s placeholder.</p>
+<p>Syntax of format_map() method with Parameters: string.format_map(mapping)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>mapping: This is the mapping to be inserted inside the string’s placeholder.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 12:</span>
+<span class="c1"># Python program to demonstrate working of format_map()</span>
+<span class="n">str12</span> <span class="o">=</span> <span class="s2">&quot;My name is </span><span class="si">{name}</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New String: &quot;</span><span class="p">,</span> <span class="n">str12</span><span class="o">.</span><span class="n">format_map</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Charan H U&quot;</span><span class="p">}))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is {name}
+New String:  My name is Charan H U
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="index">
+<h2><span class="section-number">2.7.2.11. </span>index()<a class="headerlink" href="#index" title="Permalink to this headline">#</a></h2>
+<p>Defination: The index() method returns the lowest index of the substring if it is found in given string. If its is not found then it raises an exception.
+Syntax of index() method with Parameters: string.index(substring, start, end)
+Parameters:</p>
+<ol class="simple">
+<li><p>substring: This is the substring to be searched in the string.</p></li>
+<li><p>start: This is the starting index within the string where search starts.</p></li>
+<li><p>end: This is the ending index within the string where search ends.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 13:</span>
+<span class="c1"># Python program to demonstrate working of index()</span>
+<span class="n">str13</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str13</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result: &quot;</span><span class="p">,</span> <span class="n">str13</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Charan&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is Charan H U
+Result:  11
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 14:</span>
+<span class="c1"># Python program to demonstrate working of index() with start and end</span>
+<span class="n">str14</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str14</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str14</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Charan&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str14</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Charan&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is Charan H U
+Result 1:  11
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str14</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str14</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Charan&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str14</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Charan&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+
+<span class="ne">ValueError</span>: substring not found
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="isalnum">
+<h2><span class="section-number">2.7.2.12. </span>isalnum()<a class="headerlink" href="#isalnum" title="Permalink to this headline">#</a></h2>
+<p>Defination: The isalnum() method returns True if all characters in the string are alphanumeric (either alphabets or numbers). If not, it returns False.</p>
+<p>Syntax of isalnum() method with Parameters: string.isalnum()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 15:</span>
+<span class="c1"># Python program to demonstrate working of isalnum()</span>
+<span class="n">str15</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="n">str16</span> <span class="o">=</span> <span class="s2">&quot;@@@$%^&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 1: &quot;</span><span class="p">,</span> <span class="n">str15</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str15</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 2: &quot;</span><span class="p">,</span> <span class="n">str16</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str16</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="isalpha">
+<h2><span class="section-number">2.7.2.13. </span>isalpha()<a class="headerlink" href="#isalpha" title="Permalink to this headline">#</a></h2>
+<p>Defination: The isalpha() method returns True if all characters in the string are alphabets. If not, it returns False.</p>
+<p>Syntax of isalpha() method with Parameters: string.isalpha()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 16:</span>
+<span class="c1"># Python program to demonstrate working of isalpha()</span>
+<span class="n">str17</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="n">str18</span> <span class="o">=</span> <span class="s2">&quot;Charan&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 1: &quot;</span><span class="p">,</span> <span class="n">str17</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str17</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 2: &quot;</span><span class="p">,</span> <span class="n">str18</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str18</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="isdecimal">
+<h2><span class="section-number">2.7.2.14. </span>isdecimal()<a class="headerlink" href="#isdecimal" title="Permalink to this headline">#</a></h2>
+<p>Defination: The isdecimal() method returns True if all characters in a string are decimal characters. If not, it returns False.</p>
+<p>Syntax of isdecimal() method with Parameters: string.isdecimal()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 17:</span>
+<span class="c1"># Python program to demonstrate working of isdecimal()</span>
+<span class="n">str19</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="n">str20</span> <span class="o">=</span> <span class="s2">&quot;1234567890&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 1: &quot;</span><span class="p">,</span> <span class="n">str19</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str19</span><span class="o">.</span><span class="n">isdecimal</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 2: &quot;</span><span class="p">,</span> <span class="n">str20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str20</span><span class="o">.</span><span class="n">isdecimal</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="isdigit">
+<h2><span class="section-number">2.7.2.15. </span>isdigit()<a class="headerlink" href="#isdigit" title="Permalink to this headline">#</a></h2>
+<p>Defination: The isdigit() method returns True if all characters in a string are digits. If not, it returns False.</p>
+<p>Syntax of isdigit() method with Parameters: string.isdigit()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 18:</span>
+<span class="c1"># Python program to demonstrate working of isdigit()</span>
+<span class="n">str21</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="n">str22</span> <span class="o">=</span> <span class="s2">&quot;1234567890&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 1: &quot;</span><span class="p">,</span> <span class="n">str21</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str21</span><span class="o">.</span><span class="n">isdigit</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 2: &quot;</span><span class="p">,</span> <span class="n">str22</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str22</span><span class="o">.</span><span class="n">isdigit</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="isidentifier">
+<h2><span class="section-number">2.7.2.16. </span>isidentifier()<a class="headerlink" href="#isidentifier" title="Permalink to this headline">#</a></h2>
+<p>Defination: The isidentifier() method returns True if the string is a valid identifier in Python. If not, it returns False.</p>
+<p>Syntax of isidentifier() method with Parameters: string.isidentifier()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 19:</span>
+<span class="c1"># Python program to demonstrate working of isidentifier()</span>
+<span class="n">str23</span> <span class="o">=</span> <span class="s2">&quot;int&quot;</span>
+<span class="n">str24</span> <span class="o">=</span> <span class="s2">&quot;int1&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 1: &quot;</span><span class="p">,</span> <span class="n">str23</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str23</span><span class="o">.</span><span class="n">isidentifier</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 2: &quot;</span><span class="p">,</span> <span class="n">str24</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str24</span><span class="o">.</span><span class="n">isidentifier</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="islower">
+<h2><span class="section-number">2.7.2.17. </span>islower()<a class="headerlink" href="#islower" title="Permalink to this headline">#</a></h2>
+<p>Defination: The islower() method returns True if all alphabets in a string are lowercase alphabets. If the string contains at least one uppercase alphabet, it returns False.</p>
+<p>Syntax of islower() method with Parameters: string.islower()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 20:</span>
+<span class="c1"># Python program to demonstrate working of islower()</span>
+<span class="n">str25</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="n">str26</span> <span class="o">=</span> <span class="s2">&quot;my name is charan h u&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 1: &quot;</span><span class="p">,</span> <span class="n">str25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str25</span><span class="o">.</span><span class="n">islower</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 2: &quot;</span><span class="p">,</span> <span class="n">str26</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str26</span><span class="o">.</span><span class="n">islower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="isnumeric">
+<h2><span class="section-number">2.7.2.18. </span>isnumeric()<a class="headerlink" href="#isnumeric" title="Permalink to this headline">#</a></h2>
+<p>Defination: The isnumeric() method returns True if all characters in a string are numeric characters. If not, it returns False.</p>
+<p>Syntax of isnumeric() method with Parameters: string.isnumeric()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 21:</span>
+<span class="c1"># Python program to demonstrate working of isnumeric()</span>
+<span class="n">str27</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="n">str28</span> <span class="o">=</span> <span class="s2">&quot;1234567890&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 1: &quot;</span><span class="p">,</span> <span class="n">str27</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str27</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 2: &quot;</span><span class="p">,</span> <span class="n">str28</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str28</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="isprintable">
+<h2><span class="section-number">2.7.2.19. </span>isprintable()<a class="headerlink" href="#isprintable" title="Permalink to this headline">#</a></h2>
+<p>Defination: The isprintable() method returns True if all characters in a string are printable or the string is empty. If not, it returns False.</p>
+<p>Syntax of isprintable() method with Parameters: string.isprintable()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 22:</span>
+<span class="c1"># Python program to demonstrate working of isprintable()</span>
+<span class="n">str29</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="n">str30</span> <span class="o">=</span> <span class="s2">&quot;My name is </span><span class="se">\n</span><span class="s2">Charan H U #1?.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 1: &quot;</span><span class="p">,</span> <span class="n">str29</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str29</span><span class="o">.</span><span class="n">isprintable</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 2: &quot;</span><span class="p">,</span> <span class="n">str30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str30</span><span class="o">.</span><span class="n">isprintable</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String 1:  My name is Charan H U
+Result 1:  True
+Old String 2:  My name is 
+Charan H U #1?.
+Result 2:  False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="isspace">
+<h2><span class="section-number">2.7.2.20. </span>isspace()<a class="headerlink" href="#isspace" title="Permalink to this headline">#</a></h2>
+<p>Defination: The isspace() method returns True if there are only whitespace characters in the string. If not, it returns False.</p>
+<p>Syntax of isspace() method with Parameters: string.isspace()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 23:</span>
+<span class="c1"># Python program to demonstrate working of isspace()</span>
+<span class="n">str31</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="n">str32</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 1: &quot;</span><span class="p">,</span> <span class="n">str31</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str31</span><span class="o">.</span><span class="n">isspace</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 2: &quot;</span><span class="p">,</span> <span class="n">str32</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str32</span><span class="o">.</span><span class="n">isspace</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String 1:  My name is Charan H U
+Result 1:  False
+Old String 2:   
+Result 2:  True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="istitle">
+<h2><span class="section-number">2.7.2.21. </span>istitle()<a class="headerlink" href="#istitle" title="Permalink to this headline">#</a></h2>
+<p>Defination: The istitle() method returns True if the string follows the rules of a title. If not, it returns False.</p>
+<p>rules of title() method</p>
+<ol class="simple">
+<li><p>All words in a title start with a upper case letter</p></li>
+<li><p>All other letters in a title are lower case</p></li>
+</ol>
+<p>Syntax of istitle() method with Parameters: string.istitle()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 24:</span>
+<span class="c1"># Python program to demonstrate working of istitle()</span>
+<span class="n">str33</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="n">str34</span> <span class="o">=</span> <span class="s2">&quot;My Name Is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 1: &quot;</span><span class="p">,</span> <span class="n">str33</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str33</span><span class="o">.</span><span class="n">istitle</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 2: &quot;</span><span class="p">,</span> <span class="n">str34</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str34</span><span class="o">.</span><span class="n">istitle</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String 1:  My name is Charan H U
+Result 1:  False
+Old String 2:  My Name Is Charan H U
+Result 2:  True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="isupper">
+<h2><span class="section-number">2.7.2.22. </span>isupper()<a class="headerlink" href="#isupper" title="Permalink to this headline">#</a></h2>
+<p>Defination: The isupper() method returns True if all alphabets in a string are uppercase alphabets. If the string contains at least one lowercase alphabet, it returns False.</p>
+<p>Syntax of isupper() method with Parameters: string.isupper()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 25:</span>
+<span class="c1"># Python program to demonstrate working of isupper()</span>
+<span class="n">str35</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="n">str36</span> <span class="o">=</span> <span class="s2">&quot;MY NAME IS CHARAN H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 1: &quot;</span><span class="p">,</span> <span class="n">str35</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 1: &quot;</span><span class="p">,</span> <span class="n">str35</span><span class="o">.</span><span class="n">isupper</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String 2: &quot;</span><span class="p">,</span> <span class="n">str36</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result 2: &quot;</span><span class="p">,</span> <span class="n">str36</span><span class="o">.</span><span class="n">isupper</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String 1:  My name is Charan H U
+Result 1:  False
+Old String 2:  MY NAME IS CHARAN H U
+Result 2:  True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="join">
+<h2><span class="section-number">2.7.2.23. </span>join()<a class="headerlink" href="#join" title="Permalink to this headline">#</a></h2>
+<p>Defination: The join() method returns a string concatenated with the elements of an iterable.</p>
+<p>Syntax of join() method with Parameters: string.join(iterable)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>iterable: iterable (list, tuple, string etc.) whose elements are to be joined.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 26:</span>
+<span class="c1"># Python program to demonstrate working of join()</span>
+<span class="n">str37</span> <span class="o">=</span> <span class="s2">&quot;My name is&quot;</span>
+<span class="n">str38</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span>
+<span class="n">str39</span> <span class="o">=</span> <span class="s2">&quot;Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result: &quot;</span><span class="p">,</span> <span class="n">str38</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">str37</span><span class="p">,</span> <span class="n">str39</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result:  My name is Charan H U
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ljust">
+<h2><span class="section-number">2.7.2.24. </span>ljust()<a class="headerlink" href="#ljust" title="Permalink to this headline">#</a></h2>
+<p>Defination: The ljust() method returns a left-justified string of a given minimum width.</p>
+<p>Syntax of ljust() method with Parameters: string.ljust(width, fillchar)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>width: Minimum width of the string. If the width is less than the length of the string, the original string is returned.</p></li>
+<li><p>fillchar (Optional): Fill character. Defaults to a space.</p></li>
+</ol>
+<p>Note: The fillchar is added to the right of the string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 27:</span>
+<span class="c1"># Python program to demonstrate working of ljust()</span>
+<span class="n">str40</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str40</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result String after ljust(30, &#39;0&#39;): &quot;</span><span class="p">,</span> <span class="n">str40</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is Charan H U
+Result String after ljust(30, &#39;0&#39;):  My name is Charan H U000000000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lower">
+<h2><span class="section-number">2.7.2.25. </span>lower()<a class="headerlink" href="#lower" title="Permalink to this headline">#</a></h2>
+<p>Defination: The lower() method returns a copy of the string in which all case-based characters have been lowercased.</p>
+<p>Syntax of lower() method with Parameters: string.lower()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 28:</span>
+<span class="c1"># Python program to demonstrate working of lower()</span>
+<span class="n">str41</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str41</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result String after lower(): &quot;</span><span class="p">,</span> <span class="n">str41</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lstrip">
+<h2><span class="section-number">2.7.2.26. </span>lstrip()<a class="headerlink" href="#lstrip" title="Permalink to this headline">#</a></h2>
+<p>Defination: The lstrip() method returns a copy of the string with leading characters removed (based on the string argument passed).</p>
+<p>Syntax of lstrip() method with Parameters: string.lstrip(chars)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>chars (Optional): A set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix; rather, all combinations of its values are stripped.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 29:</span>
+<span class="c1"># Python program to demonstrate working of lstrip()</span>
+<span class="n">str42</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result String after lstrip(&#39;My&#39;): &quot;</span><span class="p">,</span> <span class="n">str42</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;My&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="maketrans">
+<h2><span class="section-number">2.7.2.27. </span>maketrans()<a class="headerlink" href="#maketrans" title="Permalink to this headline">#</a></h2>
+<p>Defination: The maketrans() method returns a translation table to be used in translations.</p>
+<p>Syntax of maketrans() method with Parameters: string.maketrans(x, y, z)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>x: If only one argument is supplied, it must be a dictionary. Each key in the dictionary must be a single character string, and each value must also be a single character string.</p></li>
+<li><p>y: If two arguments are passed, they must both be strings of equal length, and in the resulting dictionary, each character in x will be mapped to the character at the same position in y.</p></li>
+<li><p>z: If there is a third argument, it must be a string, whose characters will be mapped to None in the result.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 30:</span>
+<span class="c1"># Python program to demonstrate working of maketrans()</span>
+<span class="n">str43</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str43</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after maketrans(): &quot;</span><span class="p">,</span> <span class="n">str43</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s1">&#39;My&#39;</span><span class="p">,</span> <span class="s1">&#39;Ch&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after maketrans() using translate(): &quot;</span><span class="p">,</span> <span class="n">str43</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">str43</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s1">&#39;My&#39;</span><span class="p">,</span> <span class="s1">&#39;Ch&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="partition">
+<h2><span class="section-number">2.7.2.28. </span>partition()<a class="headerlink" href="#partition" title="Permalink to this headline">#</a></h2>
+<p>Defination: The partition() method splits the string at the first occurrence of argument string and returns a tuple containing the part before the separator, argument string and the part after the separator.</p>
+<p>Syntax of partition() method with Parameters: string.partition(sep)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>sep: The separator based on which to split the string. It defaults to any whitespace.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 31:</span>
+<span class="c1"># Python program to demonstrate working of partition()</span>
+<span class="n">str44</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str44</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after partition(&#39;is&#39;): &quot;</span><span class="p">,</span> <span class="n">str44</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;is&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="replace">
+<h2><span class="section-number">2.7.2.29. </span>replace()<a class="headerlink" href="#replace" title="Permalink to this headline">#</a></h2>
+<p>Defination: The replace() method returns a copy of the string where all occurrences of a substring is replaced with another substring.</p>
+<p>Syntax of replace() method with Parameters: string.replace(old, new, count)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>old: This is old substring to be replaced.</p></li>
+<li><p>new: This is new substring, which would replace old substring.</p></li>
+<li><p>count (Optional): If this optional argument count is given, only the first count occurrences are replaced.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 32:</span>
+<span class="c1"># Python program to demonstrate working of replace()</span>
+<span class="n">str45</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str45</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after replace(&#39;is&#39;, &#39;was&#39;): &quot;</span><span class="p">,</span> <span class="n">str45</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;was&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rfind">
+<h2><span class="section-number">2.7.2.30. </span>rfind()<a class="headerlink" href="#rfind" title="Permalink to this headline">#</a></h2>
+<p>Defination: The rfind() method returns the last index where the substring str is found, or -1 if no such index exists, optionally restricting the search to string[beg:end].</p>
+<p>Syntax of rfind() method with Parameters: string.rfind(str, beg=0, end=len(string))</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>str: This is the substring to be searched.</p></li>
+<li><p>beg (Optional): This is the starting index, by default its 0.</p></li>
+<li><p>end (Optional): This is the ending index, by default its equal to the length of the string.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 33:</span>
+<span class="c1"># Python program to demonstrate working of rfind()</span>
+<span class="n">str46</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U. This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str46</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after rfind(&#39;is&#39;): &quot;</span><span class="p">,</span> <span class="n">str46</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">&#39;is&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rindex">
+<h2><span class="section-number">2.7.2.31. </span>rindex()<a class="headerlink" href="#rindex" title="Permalink to this headline">#</a></h2>
+<p>Defination: The rindex() method returns the last index where the substring str is found, or raises an exception if no such index exists, optionally restricting the search to string[beg:end].</p>
+<p>Syntax of rindex() method with Parameters: string.rindex(str, beg=0, end=len(string))</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>str: This is the substring to be searched.</p></li>
+<li><p>beg (Optional): This is the starting index, by default its 0.</p></li>
+<li><p>end (Optional): This is the ending index, by default its equal to the length of the string.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 34:</span>
+<span class="c1"># Python program to demonstrate working of rindex()</span>
+<span class="n">str47</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U. This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str47</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after rindex(&#39;is&#39;): &quot;</span><span class="p">,</span> <span class="n">str47</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s1">&#39;is&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rjust">
+<h2><span class="section-number">2.7.2.32. </span>rjust()<a class="headerlink" href="#rjust" title="Permalink to this headline">#</a></h2>
+<p>Defination: The rjust() method returns a right-justified string of a given minimum width.</p>
+<p>Syntax of rjust() method with Parameters: string.rjust(width, fillchar)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>width: This is the minimum width of the string. If the width is less than the length of the string, the string is returned unchanged.</p></li>
+<li><p>fillchar (Optional): This is the filling character, default is a space.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 35:</span>
+<span class="c1"># Python program to demonstrate working of rjust()</span>
+<span class="n">str48</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str48</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after rjust(30, &#39;0&#39;): &quot;</span><span class="p">,</span> <span class="n">str48</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rpartition">
+<h2><span class="section-number">2.7.2.33. </span>rpartition()<a class="headerlink" href="#rpartition" title="Permalink to this headline">#</a></h2>
+<p>Defination: The rpartition() method splits the string at the last occurrence of argument string and returns a tuple containing the part before the separator, argument string and the part after the separator.</p>
+<p>Syntax of rpartition() method with Parameters: string.rpartition(sep)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>sep: The separator based on which to split the string. It defaults to any whitespace.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 36:</span>
+<span class="c1"># Python program to demonstrate working of rpartition()</span>
+<span class="n">str49</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U. This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str49</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after rpartition(&#39;is&#39;): &quot;</span><span class="p">,</span> <span class="n">str49</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39;is&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rsplit">
+<h2><span class="section-number">2.7.2.34. </span>rsplit()<a class="headerlink" href="#rsplit" title="Permalink to this headline">#</a></h2>
+<p>Defination: The rsplit() method splits a string from the right, returns a list.</p>
+<p>Syntax of rsplit() method with Parameters: string.rsplit(sep=None, maxsplit=-1)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>sep (Optional): The is a delimiter. The string splits at this specified separator. If is not provided then any white space is a separator.</p></li>
+<li><p>maxsplit (Optional): The maxsplit defines the number of splits to do. Default value is -1, which is “all occurrences”.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 37:</span>
+<span class="c1"># Python program to demonstrate working of rsplit()</span>
+<span class="n">str50</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U. This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after rsplit(&#39;is&#39;): &quot;</span><span class="p">,</span> <span class="n">str50</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;is&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rstrip">
+<h2><span class="section-number">2.7.2.35. </span>rstrip()<a class="headerlink" href="#rstrip" title="Permalink to this headline">#</a></h2>
+<p>Defination: The rstrip() method returns a copy of the string with trailing characters removed (based on the string argument passed).</p>
+<p>Syntax of rstrip() method with Parameters: string.rstrip([chars])</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>chars (Optional): This is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix or suffix; rather, all combinations of its values are stripped.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 38:</span>
+<span class="c1"># Python program to demonstrate working of rstrip()</span>
+<span class="n">str51</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U. This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str51</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after rstrip(&#39;is&#39;): &quot;</span><span class="p">,</span> <span class="n">str51</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;is&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="split">
+<h2><span class="section-number">2.7.2.36. </span>split()<a class="headerlink" href="#split" title="Permalink to this headline">#</a></h2>
+<p>Defination: The split() method splits a string into a list. You can specify the separator, default separator is any whitespace.</p>
+<p>Syntax of split() method with Parameters: string.split(sep=None, maxsplit=-1)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>sep (Optional): The is a delimiter. The string splits at this specified separator. If is not provided then any white space is a separator.</p></li>
+<li><p>maxsplit (Optional): The maxsplit defines the number of splits to do. Default value is -1, which is “all occurrences”.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 39:</span>
+<span class="c1"># Python program to demonstrate working of split()</span>
+<span class="n">str52</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U. This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str52</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after split(&#39;is&#39;): &quot;</span><span class="p">,</span> <span class="n">str52</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;is&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="splitlines">
+<h2><span class="section-number">2.7.2.37. </span>splitlines()<a class="headerlink" href="#splitlines" title="Permalink to this headline">#</a></h2>
+<p>Defination: The splitlines() method splits a string into a list. The splitting is done at line boundaries.</p>
+<p>Syntax of splitlines() method with Parameters: string.splitlines([keepends])</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>keepends (Optional): This is a boolean value. If true, line breaks are also included in the resulting list.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 40:</span>
+<span class="c1"># Python program to demonstrate working of splitlines()</span>
+<span class="n">str53</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;My name is </span>
+<span class="s2">Charan H U. </span>
+<span class="s2">This is My Book&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str53</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after splitlines(): &quot;</span><span class="p">,</span> <span class="n">str53</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="startswith">
+<h2><span class="section-number">2.7.2.38. </span>startswith()<a class="headerlink" href="#startswith" title="Permalink to this headline">#</a></h2>
+<p>Defination: The startswith() method returns true if a string starts with the specified prefix. If not, it returns false.</p>
+<p>Syntax of startswith() method with Parameters: string.startswith(prefix, start, end)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>prefix: This is the prefix to be checked.</p></li>
+<li><p>start (Optional): This is the starting index within the string where prefix is to be checked.</p></li>
+<li><p>end (Optional): This is the ending index within the string where prefix is to be checked.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 41:</span>
+<span class="c1"># Python program to demonstrate working of startswith()</span>
+<span class="n">str54</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U. This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str54</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after startswith(&#39;My&#39;): &quot;</span><span class="p">,</span> <span class="n">str54</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;My&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after startswith(&#39;Charan&#39;): &quot;</span><span class="p">,</span> <span class="n">str54</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Charan&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="strip">
+<h2><span class="section-number">2.7.2.39. </span>strip()<a class="headerlink" href="#strip" title="Permalink to this headline">#</a></h2>
+<p>Defination: The strip() method returns a copy of the string with both leading and trailing characters removed (based on the string argument passed).</p>
+<p>Syntax of strip() method with Parameters: string.strip([chars])</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>chars (Optional): This is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix or suffix; rather, all combinations of its values are stripped.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 42:</span>
+<span class="c1"># Python program to demonstrate working of strip()</span>
+<span class="n">str55</span> <span class="o">=</span> <span class="s2">&quot;               Charan H U               &quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str55</span><span class="p">)</span>
+<span class="n">str56</span> <span class="o">=</span> <span class="s2">&quot;My name is &quot;</span><span class="o">+</span><span class="n">str55</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot; This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New String: &quot;</span><span class="p">,</span> <span class="n">str56</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="swapcase">
+<h2><span class="section-number">2.7.2.40. </span>swapcase()<a class="headerlink" href="#swapcase" title="Permalink to this headline">#</a></h2>
+<p>Defination: The swapcase() method returns a copy of the string with uppercase characters converted to lowercase and vice versa.</p>
+<p>Syntax of swapcase() method with Parameters: string.swapcase()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 43:</span>
+<span class="c1"># Python program to demonstrate working of swapcase()</span>
+<span class="n">str57</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U. This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str57</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after swapcase(): &quot;</span><span class="p">,</span> <span class="n">str57</span><span class="o">.</span><span class="n">swapcase</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is Charan H U. This is My Book
+Result after swapcase():  mY NAME IS cHARAN h u. tHIS IS mY bOOK
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="title">
+<h2><span class="section-number">2.7.2.41. </span>title()<a class="headerlink" href="#title" title="Permalink to this headline">#</a></h2>
+<p>Defination: The title() method returns a titlecased version of the string where words start with an uppercase character and the remaining characters are lowercase.</p>
+<p>Syntax of title() method with Parameters: string.title()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 44:</span>
+<span class="c1"># Python program to demonstrate working of title()</span>
+<span class="n">str58</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U. This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str58</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after title(): &quot;</span><span class="p">,</span> <span class="n">str58</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is Charan H U. This is My Book
+Result after title():  My Name Is Charan H U. This Is My Book
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="translate">
+<h2><span class="section-number">2.7.2.42. </span>translate()<a class="headerlink" href="#translate" title="Permalink to this headline">#</a></h2>
+<p>Defination: The translate() method returns a copy of the string in which each character has been mapped through the given translation table.</p>
+<p>Syntax of translate() method with Parameters: string.translate(table, deletechars=””)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>table: This is the translation table to be used for translating the characters.</p></li>
+<li><p>deletechars (Optional): This is a string containing the characters to be deleted.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 45:</span>
+<span class="c1"># Python program to demonstrate working of translate()</span>
+<span class="n">str59</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U. This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str59</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after translate(): &quot;</span><span class="p">,</span> <span class="n">str59</span><span class="o">.</span><span class="n">translate</span><span class="p">({</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">):</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">):</span> <span class="s1">&#39;a&#39;</span><span class="p">}))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is Charan H U. This is My Book
+Result after translate():  My nbme is Chbrbn H U. This is My Book
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="upper">
+<h2><span class="section-number">2.7.2.43. </span>upper()<a class="headerlink" href="#upper" title="Permalink to this headline">#</a></h2>
+<p>Defination: The upper() method returns a copy of the string converted to uppercase.</p>
+<p>Syntax of upper() method with Parameters: string.upper()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 46:</span>
+<span class="c1"># Python program to demonstrate working of upper()</span>
+<span class="n">str60</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U. This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after upper(): &quot;</span><span class="p">,</span> <span class="n">str60</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is Charan H U. This is My Book
+Result after upper():  MY NAME IS CHARAN H U. THIS IS MY BOOK
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="zfill">
+<h2><span class="section-number">2.7.2.44. </span>zfill()<a class="headerlink" href="#zfill" title="Permalink to this headline">#</a></h2>
+<p>Defination: The zfill() method returns a copy of the string with ‘0’ characters padded to the left.</p>
+<p>Syntax of zfill() method with Parameters: string.zfill(width)</p>
+<p>Parameters:</p>
+<ol class="simple">
+<li><p>width: This is the length of the string with the ‘0’ characters padded to the left.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example 47:</span>
+<span class="c1"># Python program to demonstrate working of zfill()</span>
+<span class="n">str61</span> <span class="o">=</span> <span class="s2">&quot;My name is Charan H U. This is My Book&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old String: &quot;</span><span class="p">,</span> <span class="n">str61</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result after zfill(50): &quot;</span><span class="p">,</span> <span class="n">str61</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Old String:  My name is Charan H U. This is My Book
+Result after zfill(50):  000000000000My name is Charan H U. This is My Book
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Chapter1\PythonStrings"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="python_strings.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2.7.1. </span>Python Strings</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../Chapter3/Chapter3.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Data Science Tips and Tricks</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Charan H U<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
