@@ -43,6 +43,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
+import warnings
+warnings.filterwarnings('ignore')
 
 
 '''downlaod iris.csv from https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv'''
@@ -152,6 +154,14 @@ plt.show()
 
 # ## Histogram, PDF, CDF
 
+# What is Histogram, PDF, CDF?
+# 
+# Histogram: A histogram is an approximate representation of the distribution of numerical data.
+# 
+# PDF: Probability Density Function is the probability that the variable takes a value between two points.
+# 
+# CDF: Cumulative Distribution Function is the probability that the variable takes a value less than or equal to x.
+
 # In[9]:
 
 
@@ -170,10 +180,12 @@ plt.plot(iris_virginica["petal_length"], np.zeros_like(
     iris_virginica['petal_length']), 'o')
 
 plt.show()
-# Disadvantages of 1-D scatter plot: Very hard to make sense as points
-# are overlapping a lot.
-# Are there better ways of visualizing 1-D scatter plots?
 
+
+# Disadvantages of 1-D scatter plot: 
+# 1. Very hard to make sense as points are overlapping a lot.
+# 
+# Are there better ways of visualizing 1-D scatter plots?
 
 # In[10]:
 
