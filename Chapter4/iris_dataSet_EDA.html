@@ -714,6 +714,8 @@ operable program or batch file.
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 
 <span class="sd">&#39;&#39;&#39;downlaod iris.csv from https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv&#39;&#39;&#39;</span>
@@ -863,6 +865,10 @@ Only possible to view 2D patterns.
 </section>
 <section id="histogram-pdf-cdf">
 <h2><span class="section-number">4.1.6. </span>Histogram, PDF, CDF<a class="headerlink" href="#histogram-pdf-cdf" title="Permalink to this headline">#</a></h2>
+<p>What is Histogram, PDF, CDF?</p>
+<p>Histogram: A histogram is an approximate representation of the distribution of numerical data.</p>
+<p>PDF: Probability Density Function is the probability that the variable takes a value between two points.</p>
+<p>CDF: Cumulative Distribution Function is the probability that the variable takes a value less than or equal to x.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What about 1-D scatter plot using just one feature?</span>
@@ -880,16 +886,18 @@ Only possible to view 2D patterns.
     <span class="n">iris_virginica</span><span class="p">[</span><span class="s1">&#39;petal_length&#39;</span><span class="p">]),</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="c1"># Disadvantages of 1-D scatter plot: Very hard to make sense as points</span>
-<span class="c1"># are overlapping a lot.</span>
-<span class="c1"># Are there better ways of visualizing 1-D scatter plots?</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/iris_dataSet_EDA_20_0.png" src="../_images/iris_dataSet_EDA_20_0.png" />
+<img alt="../_images/iris_dataSet_EDA_21_0.png" src="../_images/iris_dataSet_EDA_21_0.png" />
 </div>
 </div>
+<p>Disadvantages of 1-D scatter plot:</p>
+<ol class="simple">
+<li><p>Very hard to make sense as points are overlapping a lot.</p></li>
+</ol>
+<p>Are there better ways of visualizing 1-D scatter plots?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> \
@@ -900,15 +908,7 @@ Only possible to view 2D patterns.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-</pre></div>
-</div>
-<img alt="../_images/iris_dataSet_EDA_21_1.png" src="../_images/iris_dataSet_EDA_21_1.png" />
+<img alt="../_images/iris_dataSet_EDA_23_0.png" src="../_images/iris_dataSet_EDA_23_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -921,15 +921,7 @@ C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: Futu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-</pre></div>
-</div>
-<img alt="../_images/iris_dataSet_EDA_22_1.png" src="../_images/iris_dataSet_EDA_22_1.png" />
+<img alt="../_images/iris_dataSet_EDA_24_0.png" src="../_images/iris_dataSet_EDA_24_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -942,15 +934,7 @@ C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: Futu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-</pre></div>
-</div>
-<img alt="../_images/iris_dataSet_EDA_23_1.png" src="../_images/iris_dataSet_EDA_23_1.png" />
+<img alt="../_images/iris_dataSet_EDA_25_0.png" src="../_images/iris_dataSet_EDA_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -963,15 +947,7 @@ C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: Futu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-</pre></div>
-</div>
-<img alt="../_images/iris_dataSet_EDA_24_1.png" src="../_images/iris_dataSet_EDA_24_1.png" />
+<img alt="../_images/iris_dataSet_EDA_26_0.png" src="../_images/iris_dataSet_EDA_26_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1033,7 +1009,7 @@ C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: Futu
 [1.   1.09 1.18 1.27 1.36 1.45 1.54 1.63 1.72 1.81 1.9 ]
 </pre></div>
 </div>
-<img alt="../_images/iris_dataSet_EDA_26_1.png" src="../_images/iris_dataSet_EDA_26_1.png" />
+<img alt="../_images/iris_dataSet_EDA_28_1.png" src="../_images/iris_dataSet_EDA_28_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1067,7 +1043,7 @@ C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: Futu
 [1.   1.09 1.18 1.27 1.36 1.45 1.54 1.63 1.72 1.81 1.9 ]
 </pre></div>
 </div>
-<img alt="../_images/iris_dataSet_EDA_27_1.png" src="../_images/iris_dataSet_EDA_27_1.png" />
+<img alt="../_images/iris_dataSet_EDA_29_1.png" src="../_images/iris_dataSet_EDA_29_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1121,7 +1097,7 @@ C:\Program Files\Python310\lib\site-packages\seaborn\distributions.py:2619: Futu
 [3.   3.21 3.42 3.63 3.84 4.05 4.26 4.47 4.68 4.89 5.1 ]
 </pre></div>
 </div>
-<img alt="../_images/iris_dataSet_EDA_28_1.png" src="../_images/iris_dataSet_EDA_28_1.png" />
+<img alt="../_images/iris_dataSet_EDA_30_1.png" src="../_images/iris_dataSet_EDA_30_1.png" />
 </div>
 </div>
 </section>
@@ -1238,7 +1214,7 @@ Median Absolute Deviation
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/iris_dataSet_EDA_34_0.png" src="../_images/iris_dataSet_EDA_34_0.png" />
+<img alt="../_images/iris_dataSet_EDA_36_0.png" src="../_images/iris_dataSet_EDA_36_0.png" />
 </div>
 </div>
 </section>
@@ -1258,7 +1234,7 @@ Median Absolute Deviation
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/iris_dataSet_EDA_36_0.png" src="../_images/iris_dataSet_EDA_36_0.png" />
+<img alt="../_images/iris_dataSet_EDA_38_0.png" src="../_images/iris_dataSet_EDA_38_0.png" />
 </div>
 </div>
 </section>
@@ -1283,7 +1259,7 @@ Median Absolute Deviation
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/iris_dataSet_EDA_39_0.png" src="../_images/iris_dataSet_EDA_39_0.png" />
+<img alt="../_images/iris_dataSet_EDA_41_0.png" src="../_images/iris_dataSet_EDA_41_0.png" />
 </div>
 </div>
 </section>
@@ -1329,7 +1305,7 @@ Median Absolute Deviation
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.23436759040684807, pvalue=0.5652468285663357)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.4074673267256867, pvalue=0.051633824808879236)
 </pre></div>
 </div>
 </div>
@@ -1342,7 +1318,7 @@ Median Absolute Deviation
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.10696609560690412, pvalue=0.18858459609351397)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.16223341073071412, pvalue=0.00910372762962397)
 </pre></div>
 </div>
 </div>
@@ -1355,7 +1331,7 @@ Median Absolute Deviation
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.09918368797861754, pvalue=5.136860689308459e-09)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.09706054546554344, pvalue=1.1876789385019761e-08)
 </pre></div>
 </div>
 </div>
