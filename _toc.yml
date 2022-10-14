@@ -12,6 +12,13 @@ chapters:
   - file: Chapter1/python_introduction.ipynb
   - file: Chapter1/python_syntax.ipynb
   - file: Chapter1/python_comments.ipynb
+  - file: Chapter1/python_variables.ipynb
+  - file: Chapter1/python_dataTypes.ipynb
+  - file: Chapter1/python_numbers.ipynb
+  - file: Chapter1/PythonStrings/python_string.md
+    sections:
+    - file: Chapter1/PythonStrings/python_strings.ipynb
+    - file: Chapter1/PythonStrings/python_string_methods.ipynb
 - file: Chapter3/Chapter3.md
   sections:
   - file: Chapter3/numpy_take_method.ipynb
