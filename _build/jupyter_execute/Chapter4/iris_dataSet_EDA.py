@@ -187,8 +187,13 @@ plt.show()
 # 
 # Are there better ways of visualizing 1-D scatter plots?
 
+# ## Univariate analysis using PDF.
+# Defination: plotting of one feature at a time to understand the feature better and to get some insights about the feature and the dataset in general.
+
 # In[10]:
 
+
+# Univariate analysis using PDF
 
 sns.FacetGrid(iris, hue="species", height=5) \
    .map(sns.distplot, "petal_length") \
@@ -247,9 +252,13 @@ plt.show()
 # One of the most frequent distributions in nature.
 
 
+# ## CDF(Cumulative distribution function)
+# CDF is the probability that the variable takes a value less than or equal to x.
+
 # In[15]:
 
 
+# Cumulative Distribution Function (CDF)
 # Need for Cumulative Distribution Function (CDF)
 # We can visually see what percentage of versicolor flowers have a
 # petal_length of less than 5?
@@ -258,11 +267,14 @@ plt.show()
 
 # Plot CDF of petal_length
 
-counts, bin_edges = np.histogram(iris_setosa['petal_length'], bins=10,
-                                 density=True)
+counts, bin_edges = np.histogram(
+    iris_setosa['petal_length'], bins=10, density=True)
+
 pdf = counts/(sum(counts))
 print(pdf)
 print(bin_edges)
+
+# compute CDF
 cdf = np.cumsum(pdf)
 plt.plot(bin_edges[1:], pdf)
 plt.plot(bin_edges[1:], cdf)
@@ -346,6 +358,18 @@ plt.show()
 
 # ## Mean, Variance and Std-dev
 
+# Defination of Mean: Mean is the average of all the data points.
+# 
+# Mean = (sum of all data points)/(total number of data points)
+# 
+# Defination of Variance: Variance is the average squared distance of data points from mean.
+# 
+# Variance = (sum of (xi - mean)^2)/total number of data points
+# 
+# Defination of Std-deviation: Std-deviation is the square root of variance.
+# 
+# Std-deviation = sqrt(variance)
+
 # In[18]:
 
 
@@ -354,13 +378,19 @@ print("Means:")
 print(np.mean(iris_setosa["petal_length"]))
 # Mean with an outlier.
 print(np.mean(np.append(iris_setosa["petal_length"], 50)))
-print(np.mean(iris_virginica["petal_length"]))
 print(np.mean(iris_versicolor["petal_length"]))
+print(np.mean(iris_virginica["petal_length"]))
+
+# Variance
+print("\nVariances:")
+print(np.var(iris_setosa["petal_length"]))
+print(np.var(iris_versicolor["petal_length"]))
+print(np.var(iris_virginica["petal_length"]))
 
 print("\nStd-dev:")
 print(np.std(iris_setosa["petal_length"]))
-print(np.std(iris_virginica["petal_length"]))
 print(np.std(iris_versicolor["petal_length"]))
+print(np.std(iris_virginica["petal_length"]))
 
 
 # ## Median, Percentile, Quantile, IQR, MAD
