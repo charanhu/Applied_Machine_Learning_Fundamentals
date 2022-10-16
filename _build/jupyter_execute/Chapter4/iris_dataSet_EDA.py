@@ -5,16 +5,65 @@
 
 # ## Basic Terminology
 
-# * What is EDA?
-# * Data-point/vector/Observation
-# * Data-set.
-# * Feature/Variable/Input-variable/Dependent-varibale
-# * Label/Indepdendent-variable/Output-varible/Class/Class-label/Response label
-# * Vector: 2-D, 3-D, 4-D,.... n-D
+# What is Exploratory Data Analysis?
 # 
-# Q. What is a 1-D vector: Scalar
+# Exploratory Data Analysis (EDA) is an approach to analyzing data sets to summarize their main characteristics, often with visual methods. A statistical model can be used or not, but primarily EDA is for seeing what the data can tell us beyond the formal modeling or hypothesis testing task.
 # 
+# What is DataSet?
 # 
+# Dataset is a collection of data. It is usually shown in a tabular format, with rows and columns. Each row represents a single piece of data, and each column represents a particular attribute of the data. For example, a dataset of people might have a column for a person's name, a column for their age, and a column for their height.
+# 
+# What is Data-point?
+# 
+# A data point is a single value in a data set.
+# 
+# What is Feature?
+# 
+# A feature is an individual measurable property or characteristic of a phenomenon being observed. Features are the inputs to our model and we use them to predict labels.
+# 
+# What is Label?
+# 
+# A label is the output we want to predict. Given the features of a particular example, the model will try to predict the label. For example, in the Iris dataset, the species of the flower is the label.
+# 
+# What is Vector?
+# 
+# A vector is an ordered list of numbers. In machine learning, we typically use vectors to represent data points. For example, the vector [5, 2, 4] represents a 3-dimensional data point, and could represent a piece of fruit with a mass of 5 grams, a width of 2 grams, and a height of 4 grams.
+# 
+# What is Observations?
+# 
+# An observation is a data point. For example, a person's height could be one observation from the Iris dataset.
+# 
+# What is Input Variable?
+# 
+# An input variable is a variable (x) whose value is observed or measured. For example, the length and width of the petals in the Iris dataset are input variables.
+# 
+# What is Output Variable?
+# 
+# An output variable is a variable (y) whose value is to be predicted. For example, the species of flower is an output variable in the Iris dataset.
+# 
+# What is Class Label?
+# 
+# A class label is a label for a class. For example, in the Iris dataset, the class label for the species Iris setosa is 0, the class label for the species Iris versicolor is 1, and the class label for the species Iris virginica is 2.
+# 
+# What is 1-D Vector?
+# 
+# A 1-D vector is a vector with a single number. For example, the vector [5] is a 1-D vector.
+# 
+# What is 2-D Vector?
+# 
+# A 2-D vector is a vector with two numbers. For example, the vector [5, 2] is a 2-D vector.
+# 
+# What is 3-D Vector?
+# 
+# A 3-D vector is a vector with three numbers. For example, the vector [5, 2, 4] is a 3-D vector.
+# 
+# What is Scalar?
+# A scalar is a sin
+# gle number. For example, 5 is a scalar.
+# 
+# What is Independent Variable?
+# 
+# An independent variable is a variable whose variation does not depend on that of another. For example, the length and width of the petals in the Iris dataset are independent variables.
 
 # ## Iris Flower dataset
 
@@ -28,7 +77,9 @@
 # * Why use petal and sepal dimensions as features?
 # * Why do we not use 'color' as a feature?
 # 
+# What is the Iris Dataset?
 # 
+# The Iris flower data set or Fisher's Iris data set is a multivariate data set introduced by the British statistician and biologist Ronald Fisher in his 1936 paper The use of multiple measurements in taxonomic problems as an example of linear discriminant analysis. It is sometimes called Anderson's Iris data set because Edgar Anderson collected the data to quantify the morphologic variation of Iris flowers of three related species. The data set consists of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimetres. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other.
 
 # In[1]:
 
@@ -78,11 +129,14 @@ iris["species"].value_counts()
 
 
 # ## 2-D Scatter Plot
+# 2-D scatter plot is used to plot data points on a horizontal and vertical axis in the attempt to show how much one variable is affected by another.
 
 # In[6]:
 
 
 # 2-D scatter plot:
+# Defination:
+# 2-D scatter plot is used to plot data points on a horizontal and vertical axis in the attempt to show how much one variable is affected by another.
 # ALWAYS understand the axis: labels and scale.
 
 iris.plot(kind='scatter', x='sepal_length', y='sepal_width')
@@ -393,40 +447,105 @@ print(np.std(iris_versicolor["petal_length"]))
 print(np.std(iris_virginica["petal_length"]))
 
 
-# ## Median, Percentile, Quantile, IQR, MAD
+# ## Median
+# Defination: The middle value in the sorted data.
+# 
+# If the number of data points is odd, then the middle value is the median.
+# 
+# If the number of data points is even, then the median is the average of the two middle values.
+# 
+# Formulas for median with odd and even number of data points. 
+# 
+# Median = (n+1)/2 th data point if n is odd.
+# 
+# Median = (n/2 th data point + (n/2 + 1)th data point)/2 if n is even.
+# 
+#     Example 1: 
+#     1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+#     Median = ((10/2)+(10/2+1))/2 = (5+6)/2 = 5.5
+# 
+#     Example 2: 
+#     1, 2, 3, 4, 5, 6, 7, 8, 9
+#     Median = (9+1)/2 = 5 th data point = 5
+# 
+# 
+# Median with outlier
+# 
+#     Example 1: 
+#     1, 1.01, 1.2, 1.24, 1.5, 1.6, 1.7, 1.8, 56
+#     Median = (9+1)/2 = 5 th data point = 1.5
 
 # In[19]:
 
 
-# Median, Quantiles, Percentiles, IQR.
-from statsmodels import robust
 print("\nMedians:")
 print(np.median(iris_setosa["petal_length"]))
 # Median with an outlier
 print(np.median(np.append(iris_setosa["petal_length"], 50)))
-print(np.median(iris_virginica["petal_length"]))
 print(np.median(iris_versicolor["petal_length"]))
+print(np.median(iris_virginica["petal_length"]))
 
 
-print("\nQuantiles:")
+# ## Percentile, Quartiles & Quantile
+# Percentiles are given as percent values, values such as 95%, 40%, or 27%. Quantiles are given as decimal values, values such as 0.95, 0.4, and 0.27. 
+# 
+# The 0.95 quantile point is exactly the same as the 95th percentile point.
+# 
+#     H = [1, 2, 3,..., 99, 100]
+#     Percentile
+#     10th percentile = 10th value in H = 10
+#     It means 10% of the values are below 10 and 90% of the values are above 10.
+#     90th percentile = 90th value in H = 90
+#     It means 90% of the values are below 90 and 10% of the values are above 90.
+# 
+#     Quartiles
+#     Q1 = 25th percentile = 25th value in H = 25
+#     It means 25% of the values are below 25 and 75% of the values are above 25.
+#     Q2 = 50th percentile = 50th value in H = 50
+#     It means 50% of the values are below 50 and 50% of the values are above 50.
+#     Q3 = 75th percentile = 75th value in H = 75
+#     It means 75% of the values are below 75 and 25% of the values are above 75.
+# 
+#     Quntiles
+#     0.1th Quntile = 10th percentile = 10th value in H = 10
+#     0.2th Quntile = 20th percentile = 20th value in H = 20
+#     0.92th Quntile = 92th percentile = 92th value in H = 92
+
+# In[20]:
+
+
+print("\nQuartiles:")
 print(np.percentile(iris_setosa["petal_length"], np.arange(0, 100, 25)))
-print(np.percentile(iris_virginica["petal_length"], np.arange(0, 100, 25)))
 print(np.percentile(iris_versicolor["petal_length"], np.arange(0, 100, 25)))
+print(np.percentile(iris_virginica["petal_length"], np.arange(0, 100, 25)))
 
 print("\n90th Percentiles:")
 print(np.percentile(iris_setosa["petal_length"], 90))
-print(np.percentile(iris_virginica["petal_length"], 90))
 print(np.percentile(iris_versicolor["petal_length"], 90))
+print(np.percentile(iris_virginica["petal_length"], 90))
+
+
+# ## Median Absolute Deviation & IQR (Inter Quartile Range)
+# 
+# Median Absolute Deviation: The median absolute deviation(MAD) is a robust measure of how spread out a set of data is from its median. It is a measure of variability similar to the standard deviation or variance, but is much more.
+# 
+# 
+# IQR (Inter Quartile Range): Inter Quartile Range (IQR) is the difference between the 75th and 25th percentile.
+
+# In[21]:
+
+
+from statsmodels import robust
 
 print("\nMedian Absolute Deviation")
 print(robust.mad(iris_setosa["petal_length"]))
-print(robust.mad(iris_virginica["petal_length"]))
 print(robust.mad(iris_versicolor["petal_length"]))
+print(robust.mad(iris_virginica["petal_length"]))
 
 
 # ## Box plot and Whiskers
 
-# In[20]:
+# In[22]:
 
 
 # Box-plot with whiskers: another method of visualizing the  1-D scatter plot more intuitivey.
@@ -446,7 +565,7 @@ plt.show()
 
 # ## Violin plots
 
-# In[21]:
+# In[23]:
 
 
 # A violin plot combines the benefits of the previous two plots
@@ -468,7 +587,7 @@ plt.show()
 # ## Multivariate probability density, contour plot.
 # 
 
-# In[22]:
+# In[24]:
 
 
 # 2D Density plot, contors-plot
@@ -486,35 +605,35 @@ plt.show()
 # * Perform Bi-variate analysis (scatter plots, pair-plots) to see if combinations of features are useful in classfication.
 # * Write your observations in english as crisply and unambigously as possible. Always quantify your results.
 
-# In[23]:
+# In[25]:
 
 
 iris_virginica_SW = iris_virginica.iloc[:, 1]
 iris_versicolor_SW = iris_versicolor.iloc[:, 1]
 
 
-# In[24]:
+# In[26]:
 
 
 from scipy import stats
 stats.ks_2samp(iris_virginica_SW, iris_versicolor_SW)
 
 
-# In[25]:
+# In[27]:
 
 
 x = stats.norm.rvs(loc=0.2, size=10)
 stats.kstest(x, 'norm')
 
 
-# In[26]:
+# In[28]:
 
 
 x = stats.norm.rvs(loc=0.2, size=100)
 stats.kstest(x, 'norm')
 
 
-# In[27]:
+# In[29]:
 
 
 x = stats.norm.rvs(loc=0.2, size=1000)
