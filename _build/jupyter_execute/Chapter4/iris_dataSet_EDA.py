@@ -544,54 +544,117 @@ print(robust.mad(iris_virginica["petal_length"]))
 
 
 # ## Box plot and Whiskers
+# 
+# Box-plot is a way of statistically representing the distribution of the data through five main dimensions.
+# 1. Minimum
+# 2. First Quartile (Q1)
+# 3. Median (Q2)
+# 4. Third Quartile (Q3)
+# 5. Maximum
+# 
+# Box-plot is a very useful tool for visualizing the distribution of data.
+# 
+# It is also very useful for identifying outliers in the data.
+# 
+# Box-plot is also very useful for comparing the distributions of two or more data sets.
+# 
+# Whiskers: Whiskers are the lines that extend from the box to the minimum and maximum values.
+# 1. Whiskers are used to identify outliers in the data.
+# 2. Outliers are the data points that are distant from the other data points.
+# 3. Outliers can be due to measurement or due to data entry errors.
+# 4. Outliers can also be due to the presence of rare events.
+# 5. Outliers can be due to the presence of noise in the data.
+# 6. Outliers can be due to the presence of errors in the data.
+# 
+# 
+# 
+# Box-plot with whiskers: another method of visualizing the  1-D scatter plot more intuitivey.
+# 
+# The Concept of median, percentile, quantile.
+# 
+# How to draw the box in the box-plot?
+# 
+# How to draw whiskers: [no standard way] Could use min and max or use other complex statistical techniques.
+# 
+# IQR like idea.
+# 
+# NOTE: IN the plot below, a technique call inter-quartile range is used in plotting the whiskers.
+# 
+# Whiskers in the plot below donot correposnd to the min and max values.
+# 
+# Box-plot can be visualized as a PDF on the side-ways.
 
 # In[22]:
 
-
-# Box-plot with whiskers: another method of visualizing the  1-D scatter plot more intuitivey.
-# The Concept of median, percentile, quantile.
-# How to draw the box in the box-plot?
-# How to draw whiskers: [no standard way] Could use min and max or use other complex statistical techniques.
-# IQR like idea.
-
-# NOTE: IN the plot below, a technique call inter-quartile range is used in plotting the whiskers.
-# Whiskers in the plot below donot correposnd to the min and max values.
-
-# Box-plot can be visualized as a PDF on the side-ways.
 
 sns.boxplot(x='species', y='petal_length', data=iris)
 plt.show()
 
 
 # ## Violin plots
+# Violin plot is a combination of box plot and histogram.
+# 
+# It is used to see the distribution of data and its probability density.
+# 
+# A violin plot combines the benefits of the previous two plots and simplifies them.
+# 
+# Denser regions of the data are fatter, and sparser ones thinner in a violin plot
 
 # In[23]:
 
-
-# A violin plot combines the benefits of the previous two plots
-# and simplifies them
-
-# Denser regions of the data are fatter, and sparser ones thinner
-# in a violin plot
 
 sns.violinplot(x="species", y="petal_length", data=iris, size=8)
 plt.show()
 
 
-# ## Summarizing plots in english
-# * Exaplain your findings/conclusions in plain english
-# * Never forget your objective (the probelm you are solving) . Perform all of your EDA aligned with your objectives.
+# ## Summarizing plots in English
+# 1. Exaplain your findings/conclusions in plain english.
+# 2. Explain any useful relationships you found.
+# 3. Summarize the plots helps your colleagues understand your findings.
+# 4. Writing observations helps Business people understand your findings.
+# 5. Never forget your objective (the probelm you are solving) . 
+# 6. Perform all of your EDA aligned with your objectives.
+# 
 # 
 # ## Univariate, bivariate and multivariate analysis.
+# 1. Univariate analysis: Analyzing one feature at a time.
+# 
+# Exapmle: Histograms, PDFs, CDFs, Boxplots, Violinplots, etc.
+# 
+# 2. Bivariate analysis: Analyzing two features at a time.
+# 
+# Example: Scatterplots, Pair-plots, etc.
+# 
+# 3. Multivariate analysis: Analyzing more than two features at a time.
+# 
+# Example: 3-D scatter plots, Heatmaps, etc.
 
 # ## Multivariate probability density, contour plot.
+# A contour plot is a graphical technique for representing a 3D surface by plotting constant z slices, called contours, on a 2D format.
 # 
+# It is a very useful tool for visualizing multivariate functions.
 
 # In[24]:
 
 
 # 2D Density plot, contors-plot
-sns.jointplot(x="petal_length", y="petal_width", data=iris_setosa, kind="kde")
+sns.jointplot(x="petal_length", y="petal_width", data=iris_setosa, kind="kde", space=0, fill=True, thresh=0, cmap='Blues')
+plt.show()
+
+
+# In[25]:
+
+
+# 2D Density plot, contors-plot
+sns.jointplot(x="petal_length", y="petal_width", data=iris_versicolor, kind="kde", space=0, fill=True, thresh=0, cmap='Blues')
+plt.show()
+
+
+# In[26]:
+
+
+# 2D Density plot, contors-plot
+sns.jointplot(x="petal_length", y="petal_width", data=iris_virginica, kind="kde", space=0, fill=True, thresh=0, cmap='Blues')
 plt.show()
 
 
@@ -605,35 +668,35 @@ plt.show()
 # * Perform Bi-variate analysis (scatter plots, pair-plots) to see if combinations of features are useful in classfication.
 # * Write your observations in english as crisply and unambigously as possible. Always quantify your results.
 
-# In[25]:
+# In[27]:
 
 
 iris_virginica_SW = iris_virginica.iloc[:, 1]
 iris_versicolor_SW = iris_versicolor.iloc[:, 1]
 
 
-# In[26]:
+# In[28]:
 
 
 from scipy import stats
 stats.ks_2samp(iris_virginica_SW, iris_versicolor_SW)
 
 
-# In[27]:
+# In[29]:
 
 
 x = stats.norm.rvs(loc=0.2, size=10)
 stats.kstest(x, 'norm')
 
 
-# In[28]:
+# In[30]:
 
 
 x = stats.norm.rvs(loc=0.2, size=100)
 stats.kstest(x, 'norm')
 
 
-# In[29]:
+# In[31]:
 
 
 x = stats.norm.rvs(loc=0.2, size=1000)

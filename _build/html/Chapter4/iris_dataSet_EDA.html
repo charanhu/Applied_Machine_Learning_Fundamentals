@@ -557,7 +557,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summarizing-plots-in-english">
-   4.1.15. Summarizing plots in english
+   4.1.15. Summarizing plots in English
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -673,7 +673,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summarizing-plots-in-english">
-   4.1.15. Summarizing plots in english
+   4.1.15. Summarizing plots in English
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1360,20 +1360,37 @@ Quntiles
 </section>
 <section id="box-plot-and-whiskers">
 <h2><span class="section-number">4.1.13. </span>Box plot and Whiskers<a class="headerlink" href="#box-plot-and-whiskers" title="Permalink to this headline">#</a></h2>
+<p>Box-plot is a way of statistically representing the distribution of the data through five main dimensions.</p>
+<ol class="simple">
+<li><p>Minimum</p></li>
+<li><p>First Quartile (Q1)</p></li>
+<li><p>Median (Q2)</p></li>
+<li><p>Third Quartile (Q3)</p></li>
+<li><p>Maximum</p></li>
+</ol>
+<p>Box-plot is a very useful tool for visualizing the distribution of data.</p>
+<p>It is also very useful for identifying outliers in the data.</p>
+<p>Box-plot is also very useful for comparing the distributions of two or more data sets.</p>
+<p>Whiskers: Whiskers are the lines that extend from the box to the minimum and maximum values.</p>
+<ol class="simple">
+<li><p>Whiskers are used to identify outliers in the data.</p></li>
+<li><p>Outliers are the data points that are distant from the other data points.</p></li>
+<li><p>Outliers can be due to measurement or due to data entry errors.</p></li>
+<li><p>Outliers can also be due to the presence of rare events.</p></li>
+<li><p>Outliers can be due to the presence of noise in the data.</p></li>
+<li><p>Outliers can be due to the presence of errors in the data.</p></li>
+</ol>
+<p>Box-plot with whiskers: another method of visualizing the  1-D scatter plot more intuitivey.</p>
+<p>The Concept of median, percentile, quantile.</p>
+<p>How to draw the box in the box-plot?</p>
+<p>How to draw whiskers: [no standard way] Could use min and max or use other complex statistical techniques.</p>
+<p>IQR like idea.</p>
+<p>NOTE: IN the plot below, a technique call inter-quartile range is used in plotting the whiskers.</p>
+<p>Whiskers in the plot below donot correposnd to the min and max values.</p>
+<p>Box-plot can be visualized as a PDF on the side-ways.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Box-plot with whiskers: another method of visualizing the  1-D scatter plot more intuitivey.</span>
-<span class="c1"># The Concept of median, percentile, quantile.</span>
-<span class="c1"># How to draw the box in the box-plot?</span>
-<span class="c1"># How to draw whiskers: [no standard way] Could use min and max or use other complex statistical techniques.</span>
-<span class="c1"># IQR like idea.</span>
-
-<span class="c1"># NOTE: IN the plot below, a technique call inter-quartile range is used in plotting the whiskers.</span>
-<span class="c1"># Whiskers in the plot below donot correposnd to the min and max values.</span>
-
-<span class="c1"># Box-plot can be visualized as a PDF on the side-ways.</span>
-
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1385,15 +1402,13 @@ Quntiles
 </section>
 <section id="violin-plots">
 <h2><span class="section-number">4.1.14. </span>Violin plots<a class="headerlink" href="#violin-plots" title="Permalink to this headline">#</a></h2>
+<p>Violin plot is a combination of box plot and histogram.</p>
+<p>It is used to see the distribution of data and its probability density.</p>
+<p>A violin plot combines the benefits of the previous two plots and simplifies them.</p>
+<p>Denser regions of the data are fatter, and sparser ones thinner in a violin plot</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A violin plot combines the benefits of the previous two plots</span>
-<span class="c1"># and simplifies them</span>
-
-<span class="c1"># Denser regions of the data are fatter, and sparser ones thinner</span>
-<span class="c1"># in a violin plot</span>
-
-<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1404,27 +1419,69 @@ Quntiles
 </div>
 </section>
 <section id="summarizing-plots-in-english">
-<h2><span class="section-number">4.1.15. </span>Summarizing plots in english<a class="headerlink" href="#summarizing-plots-in-english" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Exaplain your findings/conclusions in plain english</p></li>
-<li><p>Never forget your objective (the probelm you are solving) . Perform all of your EDA aligned with your objectives.</p></li>
-</ul>
+<h2><span class="section-number">4.1.15. </span>Summarizing plots in English<a class="headerlink" href="#summarizing-plots-in-english" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Exaplain your findings/conclusions in plain english.</p></li>
+<li><p>Explain any useful relationships you found.</p></li>
+<li><p>Summarize the plots helps your colleagues understand your findings.</p></li>
+<li><p>Writing observations helps Business people understand your findings.</p></li>
+<li><p>Never forget your objective (the probelm you are solving) .</p></li>
+<li><p>Perform all of your EDA aligned with your objectives.</p></li>
+</ol>
 </section>
 <section id="univariate-bivariate-and-multivariate-analysis">
 <h2><span class="section-number">4.1.16. </span>Univariate, bivariate and multivariate analysis.<a class="headerlink" href="#univariate-bivariate-and-multivariate-analysis" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Univariate analysis: Analyzing one feature at a time.</p></li>
+</ol>
+<p>Exapmle: Histograms, PDFs, CDFs, Boxplots, Violinplots, etc.</p>
+<ol class="simple">
+<li><p>Bivariate analysis: Analyzing two features at a time.</p></li>
+</ol>
+<p>Example: Scatterplots, Pair-plots, etc.</p>
+<ol class="simple">
+<li><p>Multivariate analysis: Analyzing more than two features at a time.</p></li>
+</ol>
+<p>Example: 3-D scatter plots, Heatmaps, etc.</p>
 </section>
 <section id="multivariate-probability-density-contour-plot">
 <h2><span class="section-number">4.1.17. </span>Multivariate probability density, contour plot.<a class="headerlink" href="#multivariate-probability-density-contour-plot" title="Permalink to this headline">#</a></h2>
+<p>A contour plot is a graphical technique for representing a 3D surface by plotting constant z slices, called contours, on a 2D format.</p>
+<p>It is a very useful tool for visualizing multivariate functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2D Density plot, contors-plot</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;petal_width&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris_setosa</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;petal_width&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris_setosa</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/iris_dataSet_EDA_48_0.png" src="../_images/iris_dataSet_EDA_48_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2D Density plot, contors-plot</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;petal_width&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris_versicolor</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/iris_dataSet_EDA_49_0.png" src="../_images/iris_dataSet_EDA_49_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2D Density plot, contors-plot</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;petal_width&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris_virginica</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/iris_dataSet_EDA_50_0.png" src="../_images/iris_dataSet_EDA_50_0.png" />
 </div>
 </div>
 </section>
@@ -1470,7 +1527,7 @@ Quntiles
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.21559430049212347, pvalue=0.6663178999845151)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.17725108084259666, pvalue=0.8596020090515676)
 </pre></div>
 </div>
 </div>
@@ -1483,7 +1540,7 @@ Quntiles
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.1437703386901173, pvalue=0.028807941678981264)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.07887627290830634, pvalue=0.5363246459750552)
 </pre></div>
 </div>
 </div>
@@ -1496,7 +1553,7 @@ Quntiles
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.10034938241625213, pvalue=3.217158894367357e-09)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KstestResult(statistic=0.08363884809364686, pvalue=1.5576174834217558e-06)
 </pre></div>
 </div>
 </div>
