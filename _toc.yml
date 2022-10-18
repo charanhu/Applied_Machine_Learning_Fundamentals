@@ -6,7 +6,7 @@ root: README.md
 options:  
   numbered: True
 chapters:
-- file: How_to_read_this_Book.md
+- file: Guide_to_read_this_Book.md
 - file: Chapter1/Chapter1.md
   sections:
   - file: Chapter1/python_introduction.ipynb
