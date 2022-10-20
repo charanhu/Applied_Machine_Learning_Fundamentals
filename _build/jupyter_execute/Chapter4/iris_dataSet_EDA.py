@@ -103,21 +103,21 @@ warnings.filterwarnings('ignore')
 iris = pd.read_csv("iris.csv")
 
 
-# In[68]:
+# In[3]:
 
 
 # (Q) how many data-points and features?
 print(iris.shape)
 
 
-# In[69]:
+# In[4]:
 
 
 # (Q) What are the column names in our dataset?
 print(iris.columns)
 
 
-# In[70]:
+# In[5]:
 
 
 # (Q) How many data points for each class are present?
@@ -131,7 +131,7 @@ iris["species"].value_counts()
 # ## 2-D Scatter Plot
 # 2-D scatter plot is used to plot data points on a horizontal and vertical axis in the attempt to show how much one variable is affected by another.
 
-# In[71]:
+# In[6]:
 
 
 # 2-D scatter plot:
@@ -146,7 +146,7 @@ plt.show()
 # What if we color the points by thier class-label/flower-type.
 
 
-# In[72]:
+# In[7]:
 
 
 # 2-D Scatter plot with color-coding for each flower type/class.
@@ -189,7 +189,7 @@ plt.show()
 #     Cannot visualize higher dimensional patterns in 3-D and 4-D.
 #     Only possible to view 2D patterns.
 
-# In[73]:
+# In[8]:
 
 
 # pair-plot on iris dataset
@@ -216,7 +216,7 @@ plt.show()
 # 
 # CDF: Cumulative Distribution Function is the probability that the variable takes a value less than or equal to x.
 
-# In[74]:
+# In[9]:
 
 
 # What about 1-D scatter plot using just one feature?
@@ -244,7 +244,7 @@ plt.show()
 # ## Univariate analysis using PDF.
 # Defination: plotting of one feature at a time to understand the feature better and to get some insights about the feature and the dataset in general.
 
-# In[75]:
+# In[10]:
 
 
 # Univariate analysis using PDF
@@ -255,7 +255,7 @@ sns.FacetGrid(iris, hue="species", height=5) \
 plt.show()
 
 
-# In[76]:
+# In[11]:
 
 
 sns.FacetGrid(iris, hue="species", height=5) \
@@ -264,7 +264,7 @@ sns.FacetGrid(iris, hue="species", height=5) \
 plt.show()
 
 
-# In[77]:
+# In[12]:
 
 
 sns.FacetGrid(iris, hue="species", height=5) \
@@ -273,7 +273,7 @@ sns.FacetGrid(iris, hue="species", height=5) \
 plt.show()
 
 
-# In[78]:
+# In[13]:
 
 
 sns.FacetGrid(iris, hue="species", height=5) \
@@ -282,7 +282,7 @@ sns.FacetGrid(iris, hue="species", height=5) \
 plt.show()
 
 
-# In[79]:
+# In[14]:
 
 
 # Histograms and Probability Density Functions (PDF) using KDE
@@ -309,7 +309,7 @@ plt.show()
 # ## CDF(Cumulative distribution function)
 # CDF is the probability that the variable takes a value less than or equal to x.
 
-# In[80]:
+# In[15]:
 
 
 # Cumulative Distribution Function (CDF)
@@ -342,7 +342,7 @@ plt.plot(bin_edges[1:], pdf)
 plt.show()
 
 
-# In[81]:
+# In[16]:
 
 
 # Need for Cumulative Distribution Function (CDF)
@@ -368,7 +368,7 @@ plt.plot(bin_edges[1:], cdf)
 plt.show()
 
 
-# In[82]:
+# In[17]:
 
 
 # Plots of CDF of petal_length for various types of flowers.
@@ -424,7 +424,7 @@ plt.show()
 # 
 # Std-deviation = sqrt(variance)
 
-# In[83]:
+# In[18]:
 
 
 #Mean, Variance, Std-deviation,
@@ -475,7 +475,7 @@ print(np.std(iris_virginica["petal_length"]))
 #     1, 1.01, 1.2, 1.24, 1.5, 1.6, 1.7, 1.8, 56
 #     Median = (9+1)/2 = 5 th data point = 1.5
 
-# In[84]:
+# In[19]:
 
 
 print("\nMedians:")
@@ -511,7 +511,7 @@ print(np.median(iris_virginica["petal_length"]))
 #     0.2th Quntile = 20th percentile = 20th value in H = 20
 #     0.92th Quntile = 92th percentile = 92th value in H = 92
 
-# In[85]:
+# In[20]:
 
 
 print("\nQuartiles:")
@@ -532,7 +532,7 @@ print(np.percentile(iris_virginica["petal_length"], 90))
 # 
 # IQR (Inter Quartile Range): Inter Quartile Range (IQR) is the difference between the 75th and 25th percentile.
 
-# In[86]:
+# In[21]:
 
 
 from statsmodels import robust
@@ -584,7 +584,7 @@ print(robust.mad(iris_virginica["petal_length"]))
 # 
 # Box-plot can be visualized as a PDF on the side-ways.
 
-# In[87]:
+# In[22]:
 
 
 sns.boxplot(x='species', y='petal_length', data=iris)
@@ -600,7 +600,7 @@ plt.show()
 # 
 # Denser regions of the data are fatter, and sparser ones thinner in a violin plot
 
-# In[88]:
+# In[23]:
 
 
 sns.violinplot(x="species", y="petal_length", data=iris, size=8)
@@ -634,7 +634,7 @@ plt.show()
 # 
 # It is a very useful tool for visualizing multivariate functions.
 
-# In[89]:
+# In[24]:
 
 
 # 2D Density plot, contors-plot
@@ -642,7 +642,7 @@ sns.jointplot(x="petal_length", y="petal_width", data=iris_setosa, kind="kde", s
 plt.show()
 
 
-# In[90]:
+# In[25]:
 
 
 # 2D Density plot, contors-plot
@@ -650,7 +650,7 @@ sns.jointplot(x="petal_length", y="petal_width", data=iris_versicolor, kind="kde
 plt.show()
 
 
-# In[91]:
+# In[26]:
 
 
 # 2D Density plot, contors-plot
@@ -668,35 +668,35 @@ plt.show()
 # * Perform Bi-variate analysis (scatter plots, pair-plots) to see if combinations of features are useful in classfication.
 # * Write your observations in english as crisply and unambigously as possible. Always quantify your results.
 
-# In[92]:
+# In[27]:
 
 
 iris_virginica_SW = iris_virginica.iloc[:, 1]
 iris_versicolor_SW = iris_versicolor.iloc[:, 1]
 
 
-# In[93]:
+# In[28]:
 
 
 from scipy import stats
 stats.ks_2samp(iris_virginica_SW, iris_versicolor_SW)
 
 
-# In[94]:
+# In[29]:
 
 
 x = stats.norm.rvs(loc=0.2, size=10)
 stats.kstest(x, 'norm')
 
 
-# In[95]:
+# In[30]:
 
 
 x = stats.norm.rvs(loc=0.2, size=100)
 stats.kstest(x, 'norm')
 
 
-# In[96]:
+# In[31]:
 
 
 x = stats.norm.rvs(loc=0.2, size=1000)

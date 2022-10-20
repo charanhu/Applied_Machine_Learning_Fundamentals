@@ -1,6 +1,6 @@
 # Applied Machine Learning Fundamentals
 
-Applied Machine Learning Fundamentals book covers the basics of machine learning, including supervised learning, unsupervised learning, deep learning and Data Science how to apply machine learning to real-world problems. This book is designed for anyone who wants to learn how to apply machine learning to real-world problems. No prior experience with machine learning is required.
+Applied Machine Learning Fundamentals book covers the fundamentals of machine learning with basics, including Supervised learning, Unsupervised learning, Deep learning, Data Science and how to apply machine learning to real-world problems. This book is designed for anyone who wants to learn how to apply machine learning to real-world problems. No prior experience with machine learning is required.
 
 It also includes python fundamentals like data structures, functions, and classes. It also includes a brief introduction to the numpy and pandas libraries, which are used extensively in machine learning.
 
